@@ -1,0 +1,4546 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://joonku.com/project/machine_learning"
+
+    >machine_learning (v0.1.1)</a>
+</h1>
+<h4>Machine learning library for Node.js. You can also use this library in browser.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning">module machine_learning</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.DecisionTree">
+            function <span class="apidocSignatureSpan">machine_learning.</span>DecisionTree
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.HiddenLayer">
+            function <span class="apidocSignatureSpan">machine_learning.</span>HiddenLayer
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.KNN">
+            function <span class="apidocSignatureSpan">machine_learning.</span>KNN
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.LogisticRegression">
+            function <span class="apidocSignatureSpan">machine_learning.</span>LogisticRegression
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.MLP">
+            function <span class="apidocSignatureSpan">machine_learning.</span>MLP
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.SVM">
+            function <span class="apidocSignatureSpan">machine_learning.</span>SVM
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>DecisionTree.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>HiddenLayer.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>KNN.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>LogisticRegression.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>MLP.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>SVM.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>kmeans</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>math</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>nmf</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>optimize</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.DecisionTree">module machine_learning.DecisionTree</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.DecisionTree.DecisionTree">
+            function <span class="apidocSignatureSpan">machine_learning.</span>DecisionTree
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.DecisionTree.prototype">module machine_learning.DecisionTree.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.DecisionTree.prototype.build">
+            function <span class="apidocSignatureSpan">machine_learning.DecisionTree.prototype.</span>build
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.DecisionTree.prototype.classify">
+            function <span class="apidocSignatureSpan">machine_learning.DecisionTree.prototype.</span>classify
+            <span class="apidocSignatureSpan">(observation)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.DecisionTree.prototype.getTree">
+            function <span class="apidocSignatureSpan">machine_learning.DecisionTree.prototype.</span>getTree
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.DecisionTree.prototype.print">
+            function <span class="apidocSignatureSpan">machine_learning.DecisionTree.prototype.</span>print
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.DecisionTree.prototype.prune">
+            function <span class="apidocSignatureSpan">machine_learning.DecisionTree.prototype.</span>prune
+            <span class="apidocSignatureSpan">(mingain)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.HiddenLayer">module machine_learning.HiddenLayer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.HiddenLayer.HiddenLayer">
+            function <span class="apidocSignatureSpan">machine_learning.</span>HiddenLayer
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.HiddenLayer.prototype">module machine_learning.HiddenLayer.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.HiddenLayer.prototype.backPropagate">
+            function <span class="apidocSignatureSpan">machine_learning.HiddenLayer.prototype.</span>backPropagate
+            <span class="apidocSignatureSpan">(input)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.HiddenLayer.prototype.linearOutput">
+            function <span class="apidocSignatureSpan">machine_learning.HiddenLayer.prototype.</span>linearOutput
+            <span class="apidocSignatureSpan">(input)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.HiddenLayer.prototype.output">
+            function <span class="apidocSignatureSpan">machine_learning.HiddenLayer.prototype.</span>output
+            <span class="apidocSignatureSpan">(input)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.HiddenLayer.prototype.sampleHgivenV">
+            function <span class="apidocSignatureSpan">machine_learning.HiddenLayer.prototype.</span>sampleHgivenV
+            <span class="apidocSignatureSpan">(input)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.KNN">module machine_learning.KNN</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.KNN.KNN">
+            function <span class="apidocSignatureSpan">machine_learning.</span>KNN
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.KNN.prototype">module machine_learning.KNN.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.KNN.prototype.predict">
+            function <span class="apidocSignatureSpan">machine_learning.KNN.prototype.</span>predict
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.LogisticRegression">module machine_learning.LogisticRegression</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.LogisticRegression.LogisticRegression">
+            function <span class="apidocSignatureSpan">machine_learning.</span>LogisticRegression
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.LogisticRegression.prototype">module machine_learning.LogisticRegression.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.LogisticRegression.prototype.getReconstructionCrossEntropy">
+            function <span class="apidocSignatureSpan">machine_learning.LogisticRegression.prototype.</span>getReconstructionCrossEntropy
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.LogisticRegression.prototype.predict">
+            function <span class="apidocSignatureSpan">machine_learning.LogisticRegression.prototype.</span>predict
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.LogisticRegression.prototype.set">
+            function <span class="apidocSignatureSpan">machine_learning.LogisticRegression.prototype.</span>set
+            <span class="apidocSignatureSpan">(property, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.LogisticRegression.prototype.train">
+            function <span class="apidocSignatureSpan">machine_learning.LogisticRegression.prototype.</span>train
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.MLP">module machine_learning.MLP</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.MLP.MLP">
+            function <span class="apidocSignatureSpan">machine_learning.</span>MLP
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.MLP.prototype">module machine_learning.MLP.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.MLP.prototype.getReconstructionCrossEntropy">
+            function <span class="apidocSignatureSpan">machine_learning.MLP.prototype.</span>getReconstructionCrossEntropy
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.MLP.prototype.predict">
+            function <span class="apidocSignatureSpan">machine_learning.MLP.prototype.</span>predict
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.MLP.prototype.set">
+            function <span class="apidocSignatureSpan">machine_learning.MLP.prototype.</span>set
+            <span class="apidocSignatureSpan">(property, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.MLP.prototype.train">
+            function <span class="apidocSignatureSpan">machine_learning.MLP.prototype.</span>train
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.SVM">module machine_learning.SVM</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.SVM.SVM">
+            function <span class="apidocSignatureSpan">machine_learning.</span>SVM
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.SVM.prototype">module machine_learning.SVM.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.SVM.prototype.f">
+            function <span class="apidocSignatureSpan">machine_learning.SVM.prototype.</span>f
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.SVM.prototype.predict">
+            function <span class="apidocSignatureSpan">machine_learning.SVM.prototype.</span>predict
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.SVM.prototype.train">
+            function <span class="apidocSignatureSpan">machine_learning.SVM.prototype.</span>train
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.kmeans">module machine_learning.kmeans</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.kmeans.cluster">
+            function <span class="apidocSignatureSpan">machine_learning.kmeans.</span>cluster
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.math">module machine_learning.math</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.activateMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>activateMat
+            <span class="apidocSignatureSpan">(mat, activation)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.activateTwoMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>activateTwoMat
+            <span class="apidocSignatureSpan">(mat1, mat2, activation)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.activateTwoVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>activateTwoVec
+            <span class="apidocSignatureSpan">(vec1, vec2, activation)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.activateVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>activateVec
+            <span class="apidocSignatureSpan">(vec, activation)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.addMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>addMat
+            <span class="apidocSignatureSpan">(mat1, mat2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.addMatScalar">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>addMatScalar
+            <span class="apidocSignatureSpan">(mat, scalar)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.addMatVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>addMatVec
+            <span class="apidocSignatureSpan">(mat, vec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.addVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>addVec
+            <span class="apidocSignatureSpan">(vec1, vec2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.covarianceVecs">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>covarianceVecs
+            <span class="apidocSignatureSpan">(vecs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.dSigmoid">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>dSigmoid
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.dotVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>dotVec
+            <span class="apidocSignatureSpan">(vec1, vec2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.euclidean">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>euclidean
+            <span class="apidocSignatureSpan">(x1, x2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.fillMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>fillMat
+            <span class="apidocSignatureSpan">(row, col, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.fillVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>fillVec
+            <span class="apidocSignatureSpan">(n, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.gaussian">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>gaussian
+            <span class="apidocSignatureSpan">(x, sigma)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.getNormVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>getNormVec
+            <span class="apidocSignatureSpan">(vec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.identity">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>identity
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.maxMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>maxMat
+            <span class="apidocSignatureSpan">(mat)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.maxVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>maxVec
+            <span class="apidocSignatureSpan">(vec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.meanMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>meanMat
+            <span class="apidocSignatureSpan">(mat)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.meanMatAxis">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>meanMatAxis
+            <span class="apidocSignatureSpan">(mat, axis)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.meanVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>meanVec
+            <span class="apidocSignatureSpan">(vec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.meanVecs">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>meanVecs
+            <span class="apidocSignatureSpan">(vecs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.minMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>minMat
+            <span class="apidocSignatureSpan">(mat)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.minVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>minVec
+            <span class="apidocSignatureSpan">(vec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.minusMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>minusMat
+            <span class="apidocSignatureSpan">(mat1, mat2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.minusMatVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>minusMatVec
+            <span class="apidocSignatureSpan">(mat, vec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.minusVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>minusVec
+            <span class="apidocSignatureSpan">(vec1, vec2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.mulMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>mulMat
+            <span class="apidocSignatureSpan">(mat1, mat2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.mulMatElementWise">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>mulMatElementWise
+            <span class="apidocSignatureSpan">(mat1, mat2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.mulMatScalar">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>mulMatScalar
+            <span class="apidocSignatureSpan">(mat, scalar)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.mulVecScalar">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>mulVecScalar
+            <span class="apidocSignatureSpan">(vec, scalar)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.normalizeVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>normalizeVec
+            <span class="apidocSignatureSpan">(vec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.oneMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>oneMat
+            <span class="apidocSignatureSpan">(row, col)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.oneVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>oneVec
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.outerVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>outerVec
+            <span class="apidocSignatureSpan">(vec1, vec2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.pearson">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>pearson
+            <span class="apidocSignatureSpan">(x, y)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.probToBinaryMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>probToBinaryMat
+            <span class="apidocSignatureSpan">(mat)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.randInt">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>randInt
+            <span class="apidocSignatureSpan">(min, max)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.randMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>randMat
+            <span class="apidocSignatureSpan">(row, col, lower, upper)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.randVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>randVec
+            <span class="apidocSignatureSpan">(n, lower, upper)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.randn">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>randn
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.randnMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>randnMat
+            <span class="apidocSignatureSpan">(row, col, mean, sigma)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.randnVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>randnVec
+            <span class="apidocSignatureSpan">(n, mean, sigma)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.range">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>range
+            <span class="apidocSignatureSpan">(start, end, step)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.shape">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>shape
+            <span class="apidocSignatureSpan">(mat)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.shuffle">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>shuffle
+            <span class="apidocSignatureSpan">(arr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.sigmoid">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>sigmoid
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.softmaxMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>softmaxMat
+            <span class="apidocSignatureSpan">(mat)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.softmaxVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>softmaxVec
+            <span class="apidocSignatureSpan">(vec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.squareMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>squareMat
+            <span class="apidocSignatureSpan">(mat)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.squareVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>squareVec
+            <span class="apidocSignatureSpan">(vec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.sumMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>sumMat
+            <span class="apidocSignatureSpan">(mat)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.sumMatAxis">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>sumMatAxis
+            <span class="apidocSignatureSpan">(mat, axis)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.sumVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>sumVec
+            <span class="apidocSignatureSpan">(vec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.transpose">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>transpose
+            <span class="apidocSignatureSpan">(mat)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.zeroMat">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>zeroMat
+            <span class="apidocSignatureSpan">(row, col)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.math.zeroVec">
+            function <span class="apidocSignatureSpan">machine_learning.math.</span>zeroVec
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.nmf">module machine_learning.nmf</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.nmf.factorize">
+            function <span class="apidocSignatureSpan">machine_learning.nmf.</span>factorize
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.optimize">module machine_learning.optimize</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.optimize.anneal">
+            function <span class="apidocSignatureSpan">machine_learning.optimize.</span>anneal
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.optimize.genetic">
+            function <span class="apidocSignatureSpan">machine_learning.optimize.</span>genetic
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.optimize.hillclimb">
+            function <span class="apidocSignatureSpan">machine_learning.optimize.</span>hillclimb
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.utils">module machine_learning.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.utils.isNumber">
+            function <span class="apidocSignatureSpan">machine_learning.utils.</span>isNumber
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.utils.</span>math</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning" id="apidoc.module.machine_learning">module machine_learning</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.DecisionTree" id="apidoc.element.machine_learning.DecisionTree">
+        function <span class="apidocSignatureSpan">machine_learning.</span>DecisionTree
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">DecisionTree = function (options) {
+    var self = this;
+    self.data = options[&#x27;data&#x27;];
+    self.result = options[&#x27;result&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+           [&#x27;kiwitobes&#x27;,&#x27;UK&#x27;,&#x27;no&#x27;,19],
+           [&#x27;digg&#x27;,&#x27;New Zealand&#x27;,&#x27;yes&#x27;,12],
+           [&#x27;slashdot&#x27;,&#x27;UK&#x27;,&#x27;no&#x27;,21],
+           [&#x27;google&#x27;,&#x27;UK&#x27;,&#x27;yes&#x27;,18],
+           [&#x27;kiwitobes&#x27;,&#x27;France&#x27;,&#x27;yes&#x27;,19]];
+var result = [&#x27;None&#x27;,&#x27;Premium&#x27;,&#x27;Basic&#x27;,&#x27;Basic&#x27;,&#x27;Premium&#x27;,&#x27;None&#x27;,&#x27
+;Basic&#x27;,&#x27;Premium&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;Basic&#x27;,&#x27;None
+&#x27;,&#x27;Basic&#x27;,&#x27;Basic&#x27;];
+
+var dt = new ml.<span class="apidocCodeKeywordSpan">DecisionTree</span>({
+    data : data,
+    result : result
+});
+
+dt.build();
+
+// dt.print();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.HiddenLayer" id="apidoc.element.machine_learning.HiddenLayer">
+        function <span class="apidocSignatureSpan">machine_learning.</span>HiddenLayer
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">HiddenLayer = function (settings) {
+    var self = this;
+    self.input = settings[&#x27;input&#x27;];
+
+    if(typeof settings[&#x27;W&#x27;] === &#x27;undefined&#x27;) {
+        var a = 1. / settings[&#x27;n_in&#x27;];
+        settings[&#x27;W&#x27;] = math.randMat(settings[&#x27;n_in&#x27;],settings[&#x27;n_out&#x27;],-a,a);
+    }
+    if(typeof settings[&#x27;b&#x27;] === &#x27;undefined&#x27;)
+        settings[&#x27;b&#x27;] = math.zeroVec(settings[&#x27;n_out&#x27;]);
+    if(typeof settings[&#x27;activation&#x27;] === &#x27;undefined&#x27;)
+        settings[&#x27;activation&#x27;] = math.sigmoid;
+
+    self.W = settings[&#x27;W&#x27;];
+    self.b = settings[&#x27;b&#x27;];
+    self.activation = settings[&#x27;activation&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.KNN" id="apidoc.element.machine_learning.KNN">
+        function <span class="apidocSignatureSpan">machine_learning.</span>KNN
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">KNN = function (options) {
+    var self = this;
+    self.data = options[&#x27;data&#x27;];
+    self.result = options[&#x27;result&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        [0,0,1,0,1,0,1,1,1,1,0,1,1,1],
+        [0,0,0,0,0,0,1,1,1,1,1,1,1,1],
+        [1,0,1,0,0,1,1,1,1,1,0,0,1,0]
+       ];
+
+var result = [23,12,23,23,45,70,123,73,146,158,64];
+
+var knn = new ml.<span class="apidocCodeKeywordSpan">KNN</span>({
+data : data,
+result : result
+});
+
+var y = knn.predict({
+x : [0,0,0,0,0,0,0,1,1,1,1,1,1,1],
+k : 3,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.LogisticRegression" id="apidoc.element.machine_learning.LogisticRegression">
+        function <span class="apidocSignatureSpan">machine_learning.</span>LogisticRegression
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">LogisticRegression = function (settings) {
+    var self = this;
+    self.x = settings[&#x27;input&#x27;];
+    self.y = settings[&#x27;label&#x27;];
+    self.W = math.zeroMat(settings[&#x27;n_in&#x27;],settings[&#x27;n_out&#x27;]);
+    self.b = math.zeroVec(settings[&#x27;n_out&#x27;]);
+    self.settings = {
+        &#x27;log level&#x27; : 1 // 0 : nothing, 1 : info, 2: warn
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var y = [[1, 0],
+         [1, 0],
+         [1, 0],
+         [0, 1],
+         [0, 1],
+         [0, 1]];
+
+var classifier = new ml.<span class="apidocCodeKeywordSpan">LogisticRegression</span>({
+    &#x27;input&#x27; : x,
+    &#x27;label&#x27; : y,
+    &#x27;n_in&#x27; : 6,
+    &#x27;n_out&#x27; : 2
+});
+
+classifier.set(&#x27;log level&#x27;,1);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.MLP" id="apidoc.element.machine_learning.MLP">
+        function <span class="apidocSignatureSpan">machine_learning.</span>MLP
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MLP = function (settings) {
+    var self = this;
+    self.x = settings[&#x27;input&#x27;];
+    self.y = settings[&#x27;label&#x27;];
+    self.sigmoidLayers = [];
+    self.nLayers = settings[&#x27;hidden_layer_sizes&#x27;].length;
+    self.settings = {
+        &#x27;log level&#x27; : 1 // 0 : nothing, 1 : info, 2: warn
+    };
+    var i;
+    for(i=0 ; i&#x3c;self.nLayers+1 ; i++) {
+        var inputSize, layerInput;
+        if(i == 0)
+            inputSize = settings[&#x27;n_ins&#x27;];
+        else
+            inputSize = settings[&#x27;hidden_layer_sizes&#x27;][i-1];
+
+        if(i == 0)
+            layerInput = self.x;
+        else
+            layerInput = self.sigmoidLayers[self.sigmoidLayers.length-1].sampleHgivenV();
+
+        var sigmoidLayer;
+        if(i == self.nLayers) {
+            sigmoidLayer = new HiddenLayer({
+                &#x27;input&#x27; : layerInput,
+                &#x27;n_in&#x27; : inputSize,
+                &#x27;n_out&#x27; : settings[&#x27;n_outs&#x27;],
+                &#x27;activation&#x27; : math.sigmoid,
+                &#x27;W&#x27; : (typeof settings[&#x27;w_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;w_array&#x27;][i],
+                &#x27;b&#x27; : (typeof settings[&#x27;b_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;b_array&#x27;][i]
+            });
+        } else {
+            sigmoidLayer = new HiddenLayer({
+                &#x27;input&#x27; : layerInput,
+                &#x27;n_in&#x27; : inputSize,
+                &#x27;n_out&#x27; : settings[&#x27;hidden_layer_sizes&#x27;][i],
+                &#x27;activation&#x27; : math.sigmoid,
+                &#x27;W&#x27; : (typeof settings[&#x27;w_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;w_array&#x27;][i],
+                &#x27;b&#x27; : (typeof settings[&#x27;b_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;b_array&#x27;][i]
+            });
+        }
+        self.sigmoidLayers.push(sigmoidLayer);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var y = [[1, 0],
+         [1, 0],
+         [1, 0],
+         [0, 1],
+         [0, 1],
+         [0, 1]];
+
+var mlp = new ml.<span class="apidocCodeKeywordSpan">MLP</span>({
+    &#x27;input&#x27; : x,
+    &#x27;label&#x27; : y,
+    &#x27;n_ins&#x27; : 6,
+    &#x27;n_outs&#x27; : 2,
+    &#x27;hidden_layer_sizes&#x27; : [4,4,5]
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.SVM" id="apidoc.element.machine_learning.SVM">
+        function <span class="apidocSignatureSpan">machine_learning.</span>SVM
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">SVM = function (options) {
+    var self = this;
+    self.x = options[&#x27;x&#x27;];
+    self.y = options[&#x27;y&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     [0.2, 0.01, 0.5, 0.,  0.,  0.9],
+     [0.,  0.,  0.5, 0.3, 0.5, -2.3],
+     [0.,  0.,  0.5, 0.4, 0.5, 4],
+     [0.,  0.,  0.5, 0.5, 0.5, -2]];
+
+var y =  [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1];
+
+var svm = new ml.<span class="apidocCodeKeywordSpan">SVM</span>({
+x : x,
+y : y
+});
+
+svm.train({
+C : 1.1, // default : 1.0. C in SVM.
+tol : 1e-5, // default : 1e-4. Higher tolerance --&#x3e; Higher precision
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.DecisionTree" id="apidoc.module.machine_learning.DecisionTree">module machine_learning.DecisionTree</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.DecisionTree.DecisionTree" id="apidoc.element.machine_learning.DecisionTree.DecisionTree">
+        function <span class="apidocSignatureSpan">machine_learning.</span>DecisionTree
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">DecisionTree = function (options) {
+    var self = this;
+    self.data = options[&#x27;data&#x27;];
+    self.result = options[&#x27;result&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+           [&#x27;kiwitobes&#x27;,&#x27;UK&#x27;,&#x27;no&#x27;,19],
+           [&#x27;digg&#x27;,&#x27;New Zealand&#x27;,&#x27;yes&#x27;,12],
+           [&#x27;slashdot&#x27;,&#x27;UK&#x27;,&#x27;no&#x27;,21],
+           [&#x27;google&#x27;,&#x27;UK&#x27;,&#x27;yes&#x27;,18],
+           [&#x27;kiwitobes&#x27;,&#x27;France&#x27;,&#x27;yes&#x27;,19]];
+var result = [&#x27;None&#x27;,&#x27;Premium&#x27;,&#x27;Basic&#x27;,&#x27;Basic&#x27;,&#x27;Premium&#x27;,&#x27;None&#x27;,&#x27
+;Basic&#x27;,&#x27;Premium&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;Basic&#x27;,&#x27;None
+&#x27;,&#x27;Basic&#x27;,&#x27;Basic&#x27;];
+
+var dt = new ml.<span class="apidocCodeKeywordSpan">DecisionTree</span>({
+    data : data,
+    result : result
+});
+
+dt.build();
+
+// dt.print();
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.DecisionTree.prototype" id="apidoc.module.machine_learning.DecisionTree.prototype">module machine_learning.DecisionTree.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.DecisionTree.prototype.build" id="apidoc.element.machine_learning.DecisionTree.prototype.build">
+        function <span class="apidocSignatureSpan">machine_learning.DecisionTree.prototype.</span>build
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">build = function (options) {
+    var self = this;
+    var rows = [];
+    var i;
+    for(i=0; i&#x3c;self.data.length; i++) {
+        rows.push(self.data[i]);
+        rows[i].push(self.result[i]);
+    }
+    self.tree = buildTree(rows,entropy);
+    return self.tree;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var result = [&#x27;None&#x27;,&#x27;Premium&#x27;,&#x27;Basic&#x27;,&#x27;Basic&#x27;,&#x27;Premium&#x27;,&#x27;None&#x27;,&#x27
+;Basic&#x27;,&#x27;Premium&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;Basic&#x27;,&#x27;None
+&#x27;,&#x27;Basic&#x27;,&#x27;Basic&#x27;];
+
+var dt = new ml.DecisionTree({
+    data : data,
+    result : result
+});
+
+dt.<span class="apidocCodeKeywordSpan">build</span>();
+
+// dt.print();
+
+console.log(&#x22;Classify : &#x22;, dt.classify([&#x27;(direct)&#x27;,&#x27;USA&#x27;,&#x27;yes&#x27;,5]));
+
+dt.prune(1.0); // 1.0 : mingain.
+dt.print();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.DecisionTree.prototype.classify" id="apidoc.element.machine_learning.DecisionTree.prototype.classify">
+        function <span class="apidocSignatureSpan">machine_learning.DecisionTree.prototype.</span>classify
+        <span class="apidocSignatureSpan">(observation)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">classify = function (observation) {
+    var self = this;
+    return classify(observation,self.tree);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    result : result
+});
+
+dt.build();
+
+// dt.print();
+
+console.log(&#x22;Classify : &#x22;, dt.<span class="apidocCodeKeywordSpan">classify</span>([&#x27;(direct)&#x27;,&#x27;USA&#x27
+;,&#x27;yes&#x27;,5]));
+
+dt.prune(1.0); // 1.0 : mingain.
+dt.print();
+```
+
+## NMF (Non-negative matrix factorization)
+```javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.DecisionTree.prototype.getTree" id="apidoc.element.machine_learning.DecisionTree.prototype.getTree">
+        function <span class="apidocSignatureSpan">machine_learning.DecisionTree.prototype.</span>getTree
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getTree = function () {
+    return this.tree;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.DecisionTree.prototype.print" id="apidoc.element.machine_learning.DecisionTree.prototype.print">
+        function <span class="apidocSignatureSpan">machine_learning.DecisionTree.prototype.</span>print
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">print = function () {
+
+    var self = this;
+    printTree(self.tree,&#x27;&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var dt = new ml.DecisionTree({
+    data : data,
+    result : result
+});
+
+dt.build();
+
+// dt.<span class="apidocCodeKeywordSpan">print</span>();
+
+console.log(&#x22;Classify : &#x22;, dt.classify([&#x27;(direct)&#x27;,&#x27;USA&#x27;,&#x27;yes&#x27;,5]));
+
+dt.prune(1.0); // 1.0 : mingain.
+dt.print();
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.DecisionTree.prototype.prune" id="apidoc.element.machine_learning.DecisionTree.prototype.prune">
+        function <span class="apidocSignatureSpan">machine_learning.DecisionTree.prototype.</span>prune
+        <span class="apidocSignatureSpan">(mingain)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prune = function (mingain){
+    var self = this;
+    prune(self.tree,mingain);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+dt.build();
+
+// dt.print();
+
+console.log(&#x22;Classify : &#x22;, dt.classify([&#x27;(direct)&#x27;,&#x27;USA&#x27;,&#x27;yes&#x27;,5]));
+
+dt.<span class="apidocCodeKeywordSpan">prune</span>(1.0); // 1.0 : mingain.
+dt.print();
+```
+
+## NMF (Non-negative matrix factorization)
+```javascript
+var ml = require(&#x27;machine_learning&#x27;);
+var matrix = [[22,28],
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.HiddenLayer" id="apidoc.module.machine_learning.HiddenLayer">module machine_learning.HiddenLayer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.HiddenLayer.HiddenLayer" id="apidoc.element.machine_learning.HiddenLayer.HiddenLayer">
+        function <span class="apidocSignatureSpan">machine_learning.</span>HiddenLayer
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">HiddenLayer = function (settings) {
+    var self = this;
+    self.input = settings[&#x27;input&#x27;];
+
+    if(typeof settings[&#x27;W&#x27;] === &#x27;undefined&#x27;) {
+        var a = 1. / settings[&#x27;n_in&#x27;];
+        settings[&#x27;W&#x27;] = math.randMat(settings[&#x27;n_in&#x27;],settings[&#x27;n_out&#x27;],-a,a);
+    }
+    if(typeof settings[&#x27;b&#x27;] === &#x27;undefined&#x27;)
+        settings[&#x27;b&#x27;] = math.zeroVec(settings[&#x27;n_out&#x27;]);
+    if(typeof settings[&#x27;activation&#x27;] === &#x27;undefined&#x27;)
+        settings[&#x27;activation&#x27;] = math.sigmoid;
+
+    self.W = settings[&#x27;W&#x27;];
+    self.b = settings[&#x27;b&#x27;];
+    self.activation = settings[&#x27;activation&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.HiddenLayer.prototype" id="apidoc.module.machine_learning.HiddenLayer.prototype">module machine_learning.HiddenLayer.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.HiddenLayer.prototype.backPropagate" id="apidoc.element.machine_learning.HiddenLayer.prototype.backPropagate">
+        function <span class="apidocSignatureSpan">machine_learning.HiddenLayer.prototype.</span>backPropagate
+        <span class="apidocSignatureSpan">(input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">backPropagate = function (input) { // example+num * n_out matrix
+    var self = this;
+    if(typeof input === &#x27;undefined&#x27;)
+        throw new Error(&#x22;No BackPropagation Input.&#x22;)
+
+    var linearOutput = math.mulMat(input, math.transpose(self.W));
+    return linearOutput;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.HiddenLayer.prototype.linearOutput" id="apidoc.element.machine_learning.HiddenLayer.prototype.linearOutput">
+        function <span class="apidocSignatureSpan">machine_learning.HiddenLayer.prototype.</span>linearOutput
+        <span class="apidocSignatureSpan">(input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">linearOutput = function (input) { // returns the value before activation.
+    var self = this;
+    if(typeof input !== &#x27;undefined&#x27;)
+        self.input = input;
+
+    var linearOutput = math.addMatVec(math.mulMat(self.input,self.W),self.b);
+    return linearOutput;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.HiddenLayer.prototype.output" id="apidoc.element.machine_learning.HiddenLayer.prototype.output">
+        function <span class="apidocSignatureSpan">machine_learning.HiddenLayer.prototype.</span>output
+        <span class="apidocSignatureSpan">(input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">output = function (input) {
+    var self = this;
+    if(typeof input !== &#x27;undefined&#x27;)
+        self.input = input;
+
+    var linearOutput = math.addMatVec(math.mulMat(self.input,self.W),self.b);
+    return math.activateMat(linearOutput,self.activation);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.HiddenLayer.prototype.sampleHgivenV" id="apidoc.element.machine_learning.HiddenLayer.prototype.sampleHgivenV">
+        function <span class="apidocSignatureSpan">machine_learning.HiddenLayer.prototype.</span>sampleHgivenV
+        <span class="apidocSignatureSpan">(input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sampleHgivenV = function (input) {
+    var self = this;
+    if(typeof input !== &#x27;undefined&#x27;)
+        self.input = input;
+
+    var hMean = self.output();
+    var hSample = math.probToBinaryMat(hMean);
+    return hSample;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.KNN" id="apidoc.module.machine_learning.KNN">module machine_learning.KNN</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.KNN.KNN" id="apidoc.element.machine_learning.KNN.KNN">
+        function <span class="apidocSignatureSpan">machine_learning.</span>KNN
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">KNN = function (options) {
+    var self = this;
+    self.data = options[&#x27;data&#x27;];
+    self.result = options[&#x27;result&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        [0,0,1,0,1,0,1,1,1,1,0,1,1,1],
+        [0,0,0,0,0,0,1,1,1,1,1,1,1,1],
+        [1,0,1,0,0,1,1,1,1,1,0,0,1,0]
+       ];
+
+var result = [23,12,23,23,45,70,123,73,146,158,64];
+
+var knn = new ml.<span class="apidocCodeKeywordSpan">KNN</span>({
+data : data,
+result : result
+});
+
+var y = knn.predict({
+x : [0,0,0,0,0,0,0,1,1,1,1,1,1,1],
+k : 3,
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.KNN.prototype" id="apidoc.module.machine_learning.KNN.prototype">module machine_learning.KNN.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.KNN.prototype.predict" id="apidoc.element.machine_learning.KNN.prototype.predict">
+        function <span class="apidocSignatureSpan">machine_learning.KNN.prototype.</span>predict
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">predict = function (options) {
+    var self = this;
+    var x = options[&#x27;x&#x27;];
+    var k = options[&#x27;k&#x27;] || 3;
+    var weightf = getWeightedFunction(options[&#x27;weightf&#x27;]);
+    var distance = getDistanceFunction(options[&#x27;distance&#x27;]);
+    var distanceList = [];
+    var i;
+    for(i=0; i&#x3c;self.data.length; i++)
+        distanceList.push([distance(x,self.data[i]),i]);
+    distanceList.sort(function(a,b) {return a[0]-b[0];});
+    var avg = 0.0;
+    var totalWeight = 0, weight;
+    for(i=0; i&#x3c;k; i++) {
+        var dist = distanceList[i][0];
+        var idx = distanceList[i][1];
+        weight = weightf(dist);
+        avg += weight * self.result[idx];
+        totalWeight += weight;
+    }
+
+    avg /= totalWeight;
+    return avg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x27;epochs&#x27; : training_epochs
+});
+
+x = [[1, 1, 0, 0, 0, 0],
+     [0, 0, 0, 1, 1, 0],
+     [1, 1, 1, 1, 1, 0]];
+
+console.log(&#x22;Result : &#x22;,classifier.<span class="apidocCodeKeywordSpan">predict</span>(x));
+```
+
+## MLP (Multi-Layer Perceptron)
+```javascript
+var ml = require(&#x27;machine_learning&#x27;);
+var x = [[0.4, 0.5, 0.5, 0.,  0.,  0.],
+[0.5, 0.3,  0.5, 0.,  0.,  0.],
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.LogisticRegression" id="apidoc.module.machine_learning.LogisticRegression">module machine_learning.LogisticRegression</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.LogisticRegression.LogisticRegression" id="apidoc.element.machine_learning.LogisticRegression.LogisticRegression">
+        function <span class="apidocSignatureSpan">machine_learning.</span>LogisticRegression
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">LogisticRegression = function (settings) {
+    var self = this;
+    self.x = settings[&#x27;input&#x27;];
+    self.y = settings[&#x27;label&#x27;];
+    self.W = math.zeroMat(settings[&#x27;n_in&#x27;],settings[&#x27;n_out&#x27;]);
+    self.b = math.zeroVec(settings[&#x27;n_out&#x27;]);
+    self.settings = {
+        &#x27;log level&#x27; : 1 // 0 : nothing, 1 : info, 2: warn
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var y = [[1, 0],
+         [1, 0],
+         [1, 0],
+         [0, 1],
+         [0, 1],
+         [0, 1]];
+
+var classifier = new ml.<span class="apidocCodeKeywordSpan">LogisticRegression</span>({
+    &#x27;input&#x27; : x,
+    &#x27;label&#x27; : y,
+    &#x27;n_in&#x27; : 6,
+    &#x27;n_out&#x27; : 2
+});
+
+classifier.set(&#x27;log level&#x27;,1);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.LogisticRegression.prototype" id="apidoc.module.machine_learning.LogisticRegression.prototype">module machine_learning.LogisticRegression.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.LogisticRegression.prototype.getReconstructionCrossEntropy" id="apidoc.element.machine_learning.LogisticRegression.prototype.getReconstructionCrossEntropy">
+        function <span class="apidocSignatureSpan">machine_learning.LogisticRegression.prototype.</span>getReconstructionCrossEntropy
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getReconstructionCrossEntropy = function () {
+    var self = this;
+    var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+    var a = math.mulMatElementWise(self.y, math.activateMat(probYgivenX,Math.log));
+    var b = math.mulMatElementWise(math.mulMatScalar(math.addMatScalar(self.y,-1),-1),
+        math.activateMat(math.mulMatScalar(math.addMatScalar(probYgivenX,-1),-1),Math.log));
+    var crossEntropy = -math.meanVec(math.sumMatAxis(math.addMat(a,b),1));
+    return crossEntropy;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.LogisticRegression.prototype.predict" id="apidoc.element.machine_learning.LogisticRegression.prototype.predict">
+        function <span class="apidocSignatureSpan">machine_learning.LogisticRegression.prototype.</span>predict
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">predict = function (x) {
+    var self = this;
+    return math.softmaxMat(math.addMatVec(math.mulMat(x,self.W),self.b));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x27;epochs&#x27; : training_epochs
+});
+
+x = [[1, 1, 0, 0, 0, 0],
+     [0, 0, 0, 1, 1, 0],
+     [1, 1, 1, 1, 1, 0]];
+
+console.log(&#x22;Result : &#x22;,classifier.<span class="apidocCodeKeywordSpan">predict</span>(x));
+```
+
+## MLP (Multi-Layer Perceptron)
+```javascript
+var ml = require(&#x27;machine_learning&#x27;);
+var x = [[0.4, 0.5, 0.5, 0.,  0.,  0.],
+[0.5, 0.3,  0.5, 0.,  0.,  0.],
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.LogisticRegression.prototype.set" id="apidoc.element.machine_learning.LogisticRegression.prototype.set">
+        function <span class="apidocSignatureSpan">machine_learning.LogisticRegression.prototype.</span>set
+        <span class="apidocSignatureSpan">(property, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (property, value) {
+    var self = this;
+    self.settings[property] = value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var classifier = new ml.LogisticRegression({
+    &#x27;input&#x27; : x,
+    &#x27;label&#x27; : y,
+    &#x27;n_in&#x27; : 6,
+    &#x27;n_out&#x27; : 2
+});
+
+classifier.<span class="apidocCodeKeywordSpan">set</span>(&#x27;log level&#x27;,1);
+
+var training_epochs = 800, lr = 0.01;
+
+classifier.train({
+    &#x27;lr&#x27; : lr,
+    &#x27;epochs&#x27; : training_epochs
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.LogisticRegression.prototype.train" id="apidoc.element.machine_learning.LogisticRegression.prototype.train">
+        function <span class="apidocSignatureSpan">machine_learning.LogisticRegression.prototype.</span>train
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">train = function (settings) {
+    var self = this;
+    var lr = 0.1, epochs = 200;
+    if(typeof settings[&#x27;input&#x27;] !== &#x27;undefined&#x27;)
+        self.x = settings[&#x27;input&#x27;];
+    if(typeof settings[&#x27;lr&#x27;] !== &#x27;undefined&#x27;)
+        lr = settings[&#x27;lr&#x27;];
+    if(typeof settings[&#x27;epochs&#x27;] !== &#x27;undefined&#x27;)
+        epochs = settings[&#x27;epochs&#x27;];
+    var i;
+    var currentProgress = 1;
+    for(i=0;i&#x3c;epochs;i++) {
+        var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+        var deltaY = math.minusMat(self.y,probYgivenX);
+
+        var deltaW = math.mulMat(math.transpose(self.x),deltaY);
+        var deltaB = math.meanMatAxis(deltaY,0);
+
+        self.W = math.addMat(self.W,math.mulMatScalar(deltaW,lr));
+        self.b = math.addVec(self.b,math.mulVecScalar(deltaB,lr));
+        if(self.settings[&#x27;log level&#x27;] &#x3e; 0) {
+            var progress = (1.*i/epochs)*100;
+            if(progress &#x3e; currentProgress) {
+                console.log(&#x22;LogisticRegression&#x22;,progress.toFixed(0),&#x22;% Completed.&#x22;);
+                currentProgress++;
+            }
+        }
+    }
+    if(self.settings[&#x27;log level&#x27;] &#x3e; 0)
+        console.log(&#x22;LogisticRegression Final Cross Entropy : &#x22;,self.getReconstructionCrossEntropy());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x27;n_out&#x27; : 2
+});
+
+classifier.set(&#x27;log level&#x27;,1);
+
+var training_epochs = 800, lr = 0.01;
+
+classifier.<span class="apidocCodeKeywordSpan">train</span>({
+    &#x27;lr&#x27; : lr,
+    &#x27;epochs&#x27; : training_epochs
+});
+
+x = [[1, 1, 0, 0, 0, 0],
+[0, 0, 0, 1, 1, 0],
+[1, 1, 1, 1, 1, 0]];
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.MLP" id="apidoc.module.machine_learning.MLP">module machine_learning.MLP</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.MLP.MLP" id="apidoc.element.machine_learning.MLP.MLP">
+        function <span class="apidocSignatureSpan">machine_learning.</span>MLP
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MLP = function (settings) {
+    var self = this;
+    self.x = settings[&#x27;input&#x27;];
+    self.y = settings[&#x27;label&#x27;];
+    self.sigmoidLayers = [];
+    self.nLayers = settings[&#x27;hidden_layer_sizes&#x27;].length;
+    self.settings = {
+        &#x27;log level&#x27; : 1 // 0 : nothing, 1 : info, 2: warn
+    };
+    var i;
+    for(i=0 ; i&#x3c;self.nLayers+1 ; i++) {
+        var inputSize, layerInput;
+        if(i == 0)
+            inputSize = settings[&#x27;n_ins&#x27;];
+        else
+            inputSize = settings[&#x27;hidden_layer_sizes&#x27;][i-1];
+
+        if(i == 0)
+            layerInput = self.x;
+        else
+            layerInput = self.sigmoidLayers[self.sigmoidLayers.length-1].sampleHgivenV();
+
+        var sigmoidLayer;
+        if(i == self.nLayers) {
+            sigmoidLayer = new HiddenLayer({
+                &#x27;input&#x27; : layerInput,
+                &#x27;n_in&#x27; : inputSize,
+                &#x27;n_out&#x27; : settings[&#x27;n_outs&#x27;],
+                &#x27;activation&#x27; : math.sigmoid,
+                &#x27;W&#x27; : (typeof settings[&#x27;w_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;w_array&#x27;][i],
+                &#x27;b&#x27; : (typeof settings[&#x27;b_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;b_array&#x27;][i]
+            });
+        } else {
+            sigmoidLayer = new HiddenLayer({
+                &#x27;input&#x27; : layerInput,
+                &#x27;n_in&#x27; : inputSize,
+                &#x27;n_out&#x27; : settings[&#x27;hidden_layer_sizes&#x27;][i],
+                &#x27;activation&#x27; : math.sigmoid,
+                &#x27;W&#x27; : (typeof settings[&#x27;w_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;w_array&#x27;][i],
+                &#x27;b&#x27; : (typeof settings[&#x27;b_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;b_array&#x27;][i]
+            });
+        }
+        self.sigmoidLayers.push(sigmoidLayer);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var y = [[1, 0],
+         [1, 0],
+         [1, 0],
+         [0, 1],
+         [0, 1],
+         [0, 1]];
+
+var mlp = new ml.<span class="apidocCodeKeywordSpan">MLP</span>({
+    &#x27;input&#x27; : x,
+    &#x27;label&#x27; : y,
+    &#x27;n_ins&#x27; : 6,
+    &#x27;n_outs&#x27; : 2,
+    &#x27;hidden_layer_sizes&#x27; : [4,4,5]
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.MLP.prototype" id="apidoc.module.machine_learning.MLP.prototype">module machine_learning.MLP.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.MLP.prototype.getReconstructionCrossEntropy" id="apidoc.element.machine_learning.MLP.prototype.getReconstructionCrossEntropy">
+        function <span class="apidocSignatureSpan">machine_learning.MLP.prototype.</span>getReconstructionCrossEntropy
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getReconstructionCrossEntropy = function () {
+    var self = this;
+    var reconstructedOutput = self.predict(self.x);
+    var a = math.activateTwoMat(self.y,reconstructedOutput,function(x,y){
+        return x*Math.log(y);
+    });
+
+    var b = math.activateTwoMat(self.y,reconstructedOutput,function(x,y){
+        return (1-x)*Math.log(1-y);
+    });
+
+    var crossEntropy = -math.meanVec(math.sumMatAxis(math.addMat(a,b),1));
+    return crossEntropy
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.MLP.prototype.predict" id="apidoc.element.machine_learning.MLP.prototype.predict">
+        function <span class="apidocSignatureSpan">machine_learning.MLP.prototype.</span>predict
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">predict = function (x) {
+    var self = this;
+    var output = x;
+    for(i=0; i&#x3c;self.nLayers+1 ; i++) {
+        output = self.sigmoidLayers[i].output(output);
+    }
+    return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x27;epochs&#x27; : training_epochs
+});
+
+x = [[1, 1, 0, 0, 0, 0],
+     [0, 0, 0, 1, 1, 0],
+     [1, 1, 1, 1, 1, 0]];
+
+console.log(&#x22;Result : &#x22;,classifier.<span class="apidocCodeKeywordSpan">predict</span>(x));
+```
+
+## MLP (Multi-Layer Perceptron)
+```javascript
+var ml = require(&#x27;machine_learning&#x27;);
+var x = [[0.4, 0.5, 0.5, 0.,  0.,  0.],
+[0.5, 0.3,  0.5, 0.,  0.,  0.],
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.MLP.prototype.set" id="apidoc.element.machine_learning.MLP.prototype.set">
+        function <span class="apidocSignatureSpan">machine_learning.MLP.prototype.</span>set
+        <span class="apidocSignatureSpan">(property, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (property, value) {
+    var self = this;
+    self.settings[property] = value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var classifier = new ml.LogisticRegression({
+    &#x27;input&#x27; : x,
+    &#x27;label&#x27; : y,
+    &#x27;n_in&#x27; : 6,
+    &#x27;n_out&#x27; : 2
+});
+
+classifier.<span class="apidocCodeKeywordSpan">set</span>(&#x27;log level&#x27;,1);
+
+var training_epochs = 800, lr = 0.01;
+
+classifier.train({
+    &#x27;lr&#x27; : lr,
+    &#x27;epochs&#x27; : training_epochs
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.MLP.prototype.train" id="apidoc.element.machine_learning.MLP.prototype.train">
+        function <span class="apidocSignatureSpan">machine_learning.MLP.prototype.</span>train
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">train = function (settings) {
+    var self = this;
+    var lr = 0.6, epochs = 1000;
+    if(typeof settings[&#x27;lr&#x27;] !== &#x27;undefined&#x27;)
+        lr = settings[&#x27;lr&#x27;];
+    if(typeof settings[&#x27;epochs&#x27;] !== &#x27;undefined&#x27;)
+        epochs = settings[&#x27;epochs&#x27;];
+
+
+    var epoch;
+    var currentProgress = 1;
+    for(epoch=0 ; epoch &#x3c; epochs ; epoch++) {
+
+        // Feed Forward
+        var i;
+        var layerInput = [];
+        layerInput.push(self.x);
+        for(i=0; i&#x3c;self.nLayers+1 ; i++) {
+            layerInput.push(self.sigmoidLayers[i].output(layerInput[i]));
+        }
+        var output = layerInput[self.nLayers+1];
+        // Back Propagation
+        var delta = new Array(self.nLayers + 1);
+        delta[self.nLayers] = math.mulMatElementWise(math.minusMat(self.y, output),
+            math.activateMat(self.sigmoidLayers[self.nLayers].linearOutput(layerInput[self.nLayers]), math.dSigmoid));
+
+        /*
+         self.nLayers = 3 (3 hidden layers)
+         delta[3] : ouput layer
+         delta[2] : 3rd hidden layer, delta[0] : 1st hidden layer
+         */
+        for(i = self.nLayers - 1; i&#x3e;=0 ; i--) {
+            delta[i] = math.mulMatElementWise(self.sigmoidLayers[i+1].backPropagate(delta[i+1]),
+                math.activateMat(self.sigmoidLayers[i].linearOutput(layerInput[i]), math.dSigmoid));
+        }
+        // Update Weight, Bias
+        for(var i=0; i&#x3c;self.nLayers+1 ; i++) {
+            var deltaW = math.activateMat(math.mulMat(math.transpose(layerInput[i]),delta[i]),function(x){return 1. * x / self.x
+.length;})
+            var deltaB = math.meanMatAxis(delta[i],0);
+            self.sigmoidLayers[i].W = math.addMat(self.sigmoidLayers[i].W,deltaW);
+            self.sigmoidLayers[i].b = math.addVec(self.sigmoidLayers[i].b,deltaB);
+        }
+
+        if(self.settings[&#x27;log level&#x27;] &#x3e; 0) {
+            var progress = (1.*epoch/epochs)*100;
+            if(progress &#x3e; currentProgress) {
+                console.log(&#x22;MLP&#x22;,progress.toFixed(0),&#x22;% Completed.&#x22;);
+                currentProgress+=8;
+            }
+        }
+    }
+    if(self.settings[&#x27;log level&#x27;] &#x3e; 0)
+        console.log(&#x22;MLP Final Cross Entropy : &#x22;,self.getReconstructionCrossEntropy());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x27;n_out&#x27; : 2
+});
+
+classifier.set(&#x27;log level&#x27;,1);
+
+var training_epochs = 800, lr = 0.01;
+
+classifier.<span class="apidocCodeKeywordSpan">train</span>({
+    &#x27;lr&#x27; : lr,
+    &#x27;epochs&#x27; : training_epochs
+});
+
+x = [[1, 1, 0, 0, 0, 0],
+[0, 0, 0, 1, 1, 0],
+[1, 1, 1, 1, 1, 0]];
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.SVM" id="apidoc.module.machine_learning.SVM">module machine_learning.SVM</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.SVM.SVM" id="apidoc.element.machine_learning.SVM.SVM">
+        function <span class="apidocSignatureSpan">machine_learning.</span>SVM
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">SVM = function (options) {
+    var self = this;
+    self.x = options[&#x27;x&#x27;];
+    self.y = options[&#x27;y&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     [0.2, 0.01, 0.5, 0.,  0.,  0.9],
+     [0.,  0.,  0.5, 0.3, 0.5, -2.3],
+     [0.,  0.,  0.5, 0.4, 0.5, 4],
+     [0.,  0.,  0.5, 0.5, 0.5, -2]];
+
+var y =  [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1];
+
+var svm = new ml.<span class="apidocCodeKeywordSpan">SVM</span>({
+x : x,
+y : y
+});
+
+svm.train({
+C : 1.1, // default : 1.0. C in SVM.
+tol : 1e-5, // default : 1e-4. Higher tolerance --&#x3e; Higher precision
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.SVM.prototype" id="apidoc.module.machine_learning.SVM.prototype">module machine_learning.SVM.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.SVM.prototype.f" id="apidoc.element.machine_learning.SVM.prototype.f">
+        function <span class="apidocSignatureSpan">machine_learning.SVM.prototype.</span>f
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">f = function (x) {
+    var self = this;
+    var f = 0, j;
+    for(j=0; j&#x3c;self.x.length; j++)
+        f += self.alphas[j] * self.y[j] * self.kernel(self.x[j],x);
+    f += self.b;
+    return f;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.SVM.prototype.predict" id="apidoc.element.machine_learning.SVM.prototype.predict">
+        function <span class="apidocSignatureSpan">machine_learning.SVM.prototype.</span>predict
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">predict = function (x) {
+    var self = this;
+    if(self.f(x) &#x3e;= 0)
+        return 1;
+    else
+        return -1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x27;epochs&#x27; : training_epochs
+});
+
+x = [[1, 1, 0, 0, 0, 0],
+     [0, 0, 0, 1, 1, 0],
+     [1, 1, 1, 1, 1, 0]];
+
+console.log(&#x22;Result : &#x22;,classifier.<span class="apidocCodeKeywordSpan">predict</span>(x));
+```
+
+## MLP (Multi-Layer Perceptron)
+```javascript
+var ml = require(&#x27;machine_learning&#x27;);
+var x = [[0.4, 0.5, 0.5, 0.,  0.,  0.],
+[0.5, 0.3,  0.5, 0.,  0.,  0.],
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.SVM.prototype.train" id="apidoc.element.machine_learning.SVM.prototype.train">
+        function <span class="apidocSignatureSpan">machine_learning.SVM.prototype.</span>train
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">train = function (options) {
+    var self = this;
+    var C = options[&#x27;C&#x27;] || 1.0;
+    var tol = options[&#x27;tol&#x27;] || 1e-4;
+    var maxPasses = options[&#x27;max_passes&#x27;] || 20;
+    var alphatol = options[&#x27;alpha_tol&#x27;] || 1e-5;
+
+    self.kernel = getKernel(options[&#x27;kernel&#x27;]);
+    self.alphas = math.zeroVec(self.x.length);
+    self.b = 0;
+    var passes = 0, i;
+    var count=0;
+    while(passes &#x3c; maxPasses) {
+        var numChangedAlphas = 0;
+
+        for(i=0; i&#x3c;self.x.length; i++) {
+
+            var E_i = self.f(self.x[i]) - self.y[i];
+
+            if((self.y[i] * E_i &#x3c; -tol &#x26;&#x26; self.alphas[i] &#x3c; C) || (self.y[i] * E_i &#x3e; tol &#x26;&#x26; self.alphas[i] &#x3e;0)) {
+
+                // Randomly selects j (i != j)
+                var j = math.randInt(0,self.x.length-1);
+                if(i==j) j = (j+1) % self.x.length;
+
+                var E_j = self.f(self.x[j]) - self.y[j];
+                var alpha_i_old = self.alphas[i], alpha_j_old = self.alphas[j];
+
+                // Compute L,H
+                var L,H;
+                if(self.y[i] !== self.y[j]) {
+                    L = Math.max(0, self.alphas[j] - self.alphas[i]);
+                    H = Math.min(C, C + self.alphas[j] - self.alphas[i]);
+                } else {
+                    L = Math.max(0, self.alphas[j] + self.alphas[i] - C);
+                    H = Math.min(C, self.alphas[j] + self.alphas[i]);
+                }
+
+                if(L === H)
+                    continue;
+
+                // Compute ETA
+                var ETA = 2 * self.kernel(self.x[i],self.x[j]) - self.kernel(self.x[i],self.x[i]) - self.kernel(self.x[j],self.x
+[j]);
+                if(ETA &#x3e;= 0)
+                    continue;
+
+                // Clip new value to alpha_j
+                self.alphas[j] -= 1.*self.y[j] * (E_i - E_j) / ETA;
+                if(self.alphas[j] &#x3e; H)
+                    self.alphas[j] = H;
+                else if(self.alphas[j] &#x3c; L)
+                    self.alphas[j] = L;
+
+                if(Math.abs(self.alphas[j] - alpha_j_old) &#x3c; alphatol)
+                    continue;
+
+                // Clip new value to alpha_i
+                self.alphas[i] += self.y[i] * self.y[j] * (alpha_j_old - self.alphas[j]);
+
+                // update b
+                var b1 = self.b - E_i - self.y[i] * (self.alphas[i] - alpha_i_old) * self.kernel(self.x[i],self.x[i])
+                                - self.y[j] * (self.alphas[j] - alpha_j_old) * self.kernel(self.x[i],self.x[j]);
+                var b2 = self.b - E_j - self.y[i] * (self.alphas[i] - alpha_i_old) * self.kernel(self.x[i],self.x[j])
+                                - self.y[j] * (self.alphas[j] - alpha_j_old) * self.kernel(self.x[j],self.x[j]);
+
+                if(0 &#x3c; self.alphas[i] &#x26;&#x26; self.alphas[i] &#x3c; C)
+                    self.b = b1;
+                else if(0 &#x3c; self.alphas[j] &#x26;&#x26; self.alphas[j] &#x3c; C)
+                    self.b = b2;
+                else
+                    self.b = (b1+b2)/2.0;
+
+                numChangedAlphas ++ ;
+            } // end-if
+        } // end-for
+        if(numChangedAlphas == 0)
+            passes++;
+        else
+            passes = 0;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x27;n_out&#x27; : 2
+});
+
+classifier.set(&#x27;log level&#x27;,1);
+
+var training_epochs = 800, lr = 0.01;
+
+classifier.<span class="apidocCodeKeywordSpan">train</span>({
+    &#x27;lr&#x27; : lr,
+    &#x27;epochs&#x27; : training_epochs
+});
+
+x = [[1, 1, 0, 0, 0, 0],
+[0, 0, 0, 1, 1, 0],
+[1, 1, 1, 1, 1, 0]];
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.kmeans" id="apidoc.module.machine_learning.kmeans">module machine_learning.kmeans</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.kmeans.cluster" id="apidoc.element.machine_learning.kmeans.cluster">
+        function <span class="apidocSignatureSpan">machine_learning.kmeans.</span>cluster
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cluster = function (options) {
+    var data = options[&#x27;data&#x27;];
+    var k = options[&#x27;k&#x27;];
+    var distance = getDistanceFunction(options[&#x27;distance&#x27;]);
+    var epochs = options[&#x27;epochs&#x27;];
+    var init_using_data = options[&#x27;init_using_data&#x27;];
+    if(typeof init_using_data === &#x22;undefined&#x22;);
+        init_using_data = true;
+    var means = getRandomMeans(data,k, init_using_data);
+
+    var epoch, i, j, l;
+    var clusters = [];
+    for(i=0 ; i&#x3c;k ; i++)
+        clusters.push([]);
+
+    for(epoch=0 ; epoch&#x3c;epochs ; epoch++) {
+        clusters = [];
+        for(i=0 ; i&#x3c;k ; i++)
+            clusters.push([]);
+
+        // Find which centroid is the closest for each row
+        for(i=0 ; i&#x3c;data.length ; i++) {
+            var bestmatch = 0;
+            for(j=0 ; j&#x3c;k ; j++) {
+                if(distance(means[j],data[i]) &#x3c; distance(means[bestmatch],data[i])) bestmatch = j;
+            }
+            clusters[bestmatch].push(i);
+        }
+
+        // Move the centroids to the average of their members
+        for(i=0 ; i&#x3c;k ; i++) {
+            var avgs = [];
+            for(j=0 ; j&#x3c;data[0].length ; j++)
+                avgs.push(0.0);
+            if(clusters[i].length &#x3e; 0) {
+                for(j=0 ; j&#x3c;clusters[i].length ; j++) {
+                    for(l=0 ; l&#x3c;data[0].length ; l++) {
+                        avgs[l] += data[clusters[i][j]][l];
+                    }
+                }
+                for(j=0 ; j&#x3c;data[0].length ; j++) {
+                    avgs[j] /= clusters[i].length;
+                }
+                means[i] = avgs;
+            }
+        }
+    }
+    return {
+        clusters : clusters,
+        means : means
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        [0,0,0,0,0,0,1,1,1,0,1,1,1,0],
+        [0,0,0,0,0,1,1,1,0,1,0,1,1,0],
+        [0,0,1,0,1,0,1,1,1,1,0,1,1,1],
+        [0,0,0,0,0,0,1,1,1,1,1,1,1,1],
+        [1,0,1,0,0,1,1,1,1,1,0,0,1,0]
+       ];
+
+var result = ml.kmeans.<span class="apidocCodeKeywordSpan">cluster</span>({
+data : data,
+k : 4,
+epochs: 100,
+
+distance : {type : &#x22;pearson&#x22;}
+// default : {type : &#x27;euclidean&#x27;}
+// {type : &#x27;pearson&#x27;}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.math" id="apidoc.module.machine_learning.math">module machine_learning.math</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.activateMat" id="apidoc.element.machine_learning.math.activateMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>activateMat
+        <span class="apidocSignatureSpan">(mat, activation)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">activateMat = function (mat, activation) {
+    var row = m.shape(mat)[0];
+    var col = m.shape(mat)[1];
+    var i, j,result = [];
+    for(i=0;i&#x3c;row;i++) {
+        var rowVec = [];
+        for(j=0;j&#x3c;col;j++)
+            rowVec.push(activation(mat[i][j]));
+        result.push(rowVec);
+    }
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+HiddenLayer.prototype.output = function(input) {
+var self = this;
+if(typeof input !== &#x27;undefined&#x27;)
+    self.input = input;
+
+var linearOutput = math.addMatVec(math.mulMat(self.input,self.W),self.b);
+return math.<span class="apidocCodeKeywordSpan">activateMat</span>(linearOutput,self.activation);
+};
+
+HiddenLayer.prototype.linearOutput = function(input) { // returns the value before activation.
+var self = this;
+if(typeof input !== &#x27;undefined&#x27;)
+    self.input = input;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.activateTwoMat" id="apidoc.element.machine_learning.math.activateTwoMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>activateTwoMat
+        <span class="apidocSignatureSpan">(mat1, mat2, activation)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">activateTwoMat = function (mat1, mat2, activation) {
+    if (mat1.length === mat2.length &#x26;&#x26; mat1[0].length === mat2[0].length) {
+        var result = new Array(mat1.length);
+
+        for (var x = 0; x &#x3c; mat1.length; x++) {
+            result[x] = new Array(mat1[0].length);
+        }
+
+        for (var i = 0; i &#x3c; result.length; i++) {
+            for (var j = 0; j &#x3c; result[i].length; j++) {
+                result[i][j] = activation(mat1[i][j],mat2[i][j]);
+            }
+        }
+        return result;
+    } else {
+        throw new Error(&#x22;Matrix shape error : not same&#x22;);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.activateTwoVec" id="apidoc.element.machine_learning.math.activateTwoVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>activateTwoVec
+        <span class="apidocSignatureSpan">(vec1, vec2, activation)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">activateTwoVec = function (vec1, vec2, activation) {
+    if (vec1.length === vec2.length) {
+        var result = new Array(vec1.length);
+        for (var i = 0; i &#x3c; result.length; i++) {
+            result[i] = activation(vec1[i],vec2[i]);
+        }
+        return result;
+    } else {
+        throw new Error(&#x22;Matrix shape error : not same&#x22;);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.activateVec" id="apidoc.element.machine_learning.math.activateVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>activateVec
+        <span class="apidocSignatureSpan">(vec, activation)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">activateVec = function (vec, activation) {
+    var i, result = [];
+    for(i=0;i&#x3c;vec.length;i++)
+        result.push(activation(vec[i]));
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    mat.push(rowVec);
+}
+return mat;
+};
+
+m.softmaxVec = function(vec) {
+var max = m.maxVec(vec);
+var preSoftmaxVec = m.<span class="apidocCodeKeywordSpan">activateVec</span>(vec,function(x) {return Math.exp(x - max);})
+return m.activateVec(preSoftmaxVec,function(x) {return x/ m.sumVec(preSoftmaxVec)})
+};
+
+m.softmaxMat = function(mat) {
+var result=[], i;
+for(i=0 ; i&#x3c;mat.length ; i++)
+    result.push(m.softmaxVec(mat[i]));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.addMat" id="apidoc.element.machine_learning.math.addMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>addMat
+        <span class="apidocSignatureSpan">(mat1, mat2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addMat = function (mat1, mat2) {
+    if ((mat1.length === mat2.length) &#x26;&#x26; (mat1[0].length === mat2[0].length)) {
+        var result = new Array(mat1.length);
+        for (var i = 0; i &#x3c; mat1.length; i++) {
+            result[i] = new Array(mat1[i].length);
+            for (var j = 0; j &#x3c; mat1[i].length; j++) {
+                result[i][j] = mat1[i][j] + mat2[i][j];
+            }
+        }
+        return result;
+    } else {
+        throw new Error(&#x27;Matrix mismatch.&#x27;);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+m.covarianceVecs = function(vecs) {
+var mat = m.zeroMat(vecs[0].length,vecs[0].length);
+var meanVec = m.meanVecs(vecs);
+var i;
+for(i=0; i&#x3c;vecs.length; i++) {
+    var a = m.minusVec(vecs[i],meanVec);
+    mat = m.<span class="apidocCodeKeywordSpan">addMat</span>(mat, m.mulMat(m.transpose([a]),[a]));
+}
+return m.activateMat(mat,function(x) { return 1.*x/(vecs.length-1);});
+};
+
+m.shuffle = function(arr){
+var o = [];
+for(var i=0;i&#x3c;arr.length;i++)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.addMatScalar" id="apidoc.element.machine_learning.math.addMatScalar">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>addMatScalar
+        <span class="apidocSignatureSpan">(mat, scalar)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addMatScalar = function (mat, scalar) {
+    var row = m.shape(mat)[0];
+    var col = m.shape(mat)[1];
+    var i , j,result = [];
+    for(i=0 ; i&#x3c;row ; i++) {
+        var rowVec = [];
+        for(j=0 ; j&#x3c;col ; j++) {
+            rowVec.push(mat[i][j] + scalar);
+        }
+        result.push(rowVec);
+    }
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.addMatVec" id="apidoc.element.machine_learning.math.addMatVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>addMatVec
+        <span class="apidocSignatureSpan">(mat, vec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addMatVec = function (mat, vec) {
+    if(mat[0].length === vec.length) {
+        var result = [];
+        var i;
+        for(i=0;i&#x3c;mat.length;i++)
+            result.push(m.addVec(mat[i],vec));
+        return result;
+    } else {
+        throw new Error(&#x22;Length Error : not same.&#x22;)
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+HiddenLayer.prototype.output = function(input) {
+var self = this;
+if(typeof input !== &#x27;undefined&#x27;)
+    self.input = input;
+
+var linearOutput = math.<span class="apidocCodeKeywordSpan">addMatVec</span>(math.mulMat(self.input,self.W),self.b);
+return math.activateMat(linearOutput,self.activation);
+};
+
+HiddenLayer.prototype.linearOutput = function(input) { // returns the value before activation.
+var self = this;
+if(typeof input !== &#x27;undefined&#x27;)
+    self.input = input;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.addVec" id="apidoc.element.machine_learning.math.addVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>addVec
+        <span class="apidocSignatureSpan">(vec1, vec2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addVec = function (vec1, vec2) {
+    if(vec1.length === vec2.length) {
+        var result = [];
+        var i;
+        for(i=0;i&#x3c;vec1.length;i++)
+            result.push(vec1[i]+vec2[i]);
+        return result;
+    } else {
+        throw new Error(&#x22;Length Error : not same.&#x22;)
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+m.addMatVec = function(mat,vec) {
+    if(mat[0].length === vec.length) {
+        var result = [];
+        var i;
+        for(i=0;i&#x3c;mat.length;i++)
+            result.push(m.<span class="apidocCodeKeywordSpan">addVec</span>(mat[i],vec));
+        return result;
+    } else {
+        throw new Error(&#x22;Length Error : not same.&#x22;)
+    }
+}
+
+m.minusMatVec = function(mat,vec) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.covarianceVecs" id="apidoc.element.machine_learning.math.covarianceVecs">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>covarianceVecs
+        <span class="apidocSignatureSpan">(vecs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">covarianceVecs = function (vecs) {
+    var mat = m.zeroMat(vecs[0].length,vecs[0].length);
+    var meanVec = m.meanVecs(vecs);
+    var i;
+    for(i=0; i&#x3c;vecs.length; i++) {
+        var a = m.minusVec(vecs[i],meanVec);
+        mat = m.addMat(mat, m.mulMat(m.transpose([a]),[a]));
+    }
+    return m.activateMat(mat,function(x) { return 1.*x/(vecs.length-1);});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.dSigmoid" id="apidoc.element.machine_learning.math.dSigmoid">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>dSigmoid
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dSigmoid = function (x){
+    a = m.sigmoid(x);
+    return a * (1. - a);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.dotVec" id="apidoc.element.machine_learning.math.dotVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>dotVec
+        <span class="apidocSignatureSpan">(vec1, vec2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dotVec = function (vec1, vec2) {
+    if (vec1.length === vec2.length) {
+        var result = 0;
+        for (var i = 0; i &#x3c; vec1.length; i++) {
+            result += vec1[i] * vec2[i];
+        }
+        return result;
+    } else {
+        throw new Error(&#x22;Vector mismatch&#x22;);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            result[x] = new Array(mat2[0].length);
+        }
+
+
+        var mat2_T = m.transpose(mat2);
+        for (var i = 0; i &#x3c; result.length; i++) {
+            for (var j = 0; j &#x3c; result[i].length; j++) {
+                result[i][j] = m.<span class="apidocCodeKeywordSpan">dotVec</span>(mat1[i],mat2_T[j]);
+            }
+        }
+        return result;
+    } else {
+        throw new Error(&#x22;Array mismatch&#x22;);
+    }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.euclidean" id="apidoc.element.machine_learning.math.euclidean">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>euclidean
+        <span class="apidocSignatureSpan">(x1, x2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">euclidean = function (x1, x2) {
+    var i;
+    var distance = 0;
+    for(i=0 ; i&#x3c;x1.length; i++) {
+        var dx = x1[i] - x2[i];
+        distance += dx * dx;
+    }
+    return Math.sqrt(distance);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.fillMat" id="apidoc.element.machine_learning.math.fillMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>fillMat
+        <span class="apidocSignatureSpan">(row, col, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fillMat = function (row, col, value) {
+    var mat = [];
+    while(mat.length &#x3c; row) {
+        var rowVec = [];
+        while(rowVec.length &#x3c; col)
+            rowVec.push(value);
+        mat.push(rowVec);
+    }
+    return mat;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.fillVec" id="apidoc.element.machine_learning.math.fillVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>fillVec
+        <span class="apidocSignatureSpan">(n, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fillVec = function (n, value) {
+    var vec = [];
+    while(vec.length &#x3c; n)
+        vec.push(value);
+    return vec;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.gaussian" id="apidoc.element.machine_learning.math.gaussian">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>gaussian
+        <span class="apidocSignatureSpan">(x, sigma)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gaussian = function (x, sigma) {
+    sigma = sigma || 10.0;
+    return Math.exp(-1.*x*x/(2*sigma*sigma));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.getNormVec" id="apidoc.element.machine_learning.math.getNormVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>getNormVec
+        <span class="apidocSignatureSpan">(vec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getNormVec = function (vec) {
+    var i;
+    var sqsum = 0;
+    for(i=0; i&#x3c;vec.length; i++)
+        sqsum += vec[i] * vec[i];
+    return Math.sqrt(sqsum);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.identity" id="apidoc.element.machine_learning.math.identity">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>identity
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">identity = function (n) {
+    var result = new Array(n);
+
+    for (var i = 0; i &#x3c; n ; i++) {
+        result[i] = new Array(n);
+        for (var j = 0; j &#x3c; n; j++) {
+            result[i][j] = (i === j) ? 1 : 0;
+        }
+    }
+
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.maxMat" id="apidoc.element.machine_learning.math.maxMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>maxMat
+        <span class="apidocSignatureSpan">(mat)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">maxMat = function (mat) {
+    var max = mat[0][0];
+    var i = mat.length;
+    while (i--) {
+        for(var j=0;j&#x3c;mat[0].length;j++) {
+            if(mat[i][j] &#x3c; max)
+                max = mat[i][j];
+        }
+    }
+    return max;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.maxVec" id="apidoc.element.machine_learning.math.maxVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>maxVec
+        <span class="apidocSignatureSpan">(vec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">maxVec = function (vec) {
+    var max = vec[0];
+    var i = vec.length;
+    while (i--) {
+        if (vec[i] &#x3e; max)
+            max = vec[i];
+    }
+    return max;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        rowVec.push(value);
+    mat.push(rowVec);
+}
+return mat;
+};
+
+m.softmaxVec = function(vec) {
+var max = m.<span class="apidocCodeKeywordSpan">maxVec</span>(vec);
+var preSoftmaxVec = m.activateVec(vec,function(x) {return Math.exp(x - max);})
+return m.activateVec(preSoftmaxVec,function(x) {return x/ m.sumVec(preSoftmaxVec)})
+};
+
+m.softmaxMat = function(mat) {
+var result=[], i;
+for(i=0 ; i&#x3c;mat.length ; i++)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.meanMat" id="apidoc.element.machine_learning.math.meanMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>meanMat
+        <span class="apidocSignatureSpan">(mat)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">meanMat = function (mat) {
+    var row = mat.length;
+    var col = mat[0].length;
+    return 1. * m.sumMat(mat) / (row * col);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.meanMatAxis" id="apidoc.element.machine_learning.math.meanMatAxis">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>meanMatAxis
+        <span class="apidocSignatureSpan">(mat, axis)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">meanMatAxis = function (mat, axis) {
+    // default axis 0;
+    // axis 0 : mean of col vector . axis 1 : mean of row vector
+    if(axis === 1) {
+        var row = m.shape(mat)[0];
+        var i ;
+        var result = [];
+        for(i=0 ; i&#x3c;row; i++)
+            result.push(m.meanVec(mat[i]));
+        return result;
+    } else {
+        mat_T = m.transpose(mat);
+        return m.meanMatAxis(mat_T,1);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var i ;
+    var result = [];
+    for(i=0 ; i&#x3c;row; i++)
+        result.push(m.meanVec(mat[i]));
+    return result;
+} else {
+    mat_T = m.transpose(mat);
+    return m.<span class="apidocCodeKeywordSpan">meanMatAxis</span>(mat_T,1);
+}
+};
+
+m.squareVec = function(vec) {
+var squareVec = [];
+var i;
+for(i=0;i&#x3c;vec.length;i++) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.meanVec" id="apidoc.element.machine_learning.math.meanVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>meanVec
+        <span class="apidocSignatureSpan">(vec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">meanVec = function (vec) {
+    return 1. * m.sumVec(vec) / vec.length;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    // default axis 0;
+    // axis 0 : mean of col vector . axis 1 : mean of row vector
+    if(axis === 1) {
+        var row = m.shape(mat)[0];
+        var i ;
+        var result = [];
+        for(i=0 ; i&#x3c;row; i++)
+            result.push(m.<span class="apidocCodeKeywordSpan">meanVec</span>(mat[i]));
+        return result;
+    } else {
+        mat_T = m.transpose(mat);
+        return m.meanMatAxis(mat_T,1);
+    }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.meanVecs" id="apidoc.element.machine_learning.math.meanVecs">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>meanVecs
+        <span class="apidocSignatureSpan">(vecs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">meanVecs = function (vecs) {
+    var sum = m.zeroVec(vecs[0].length);
+    var i;
+    for(i=0; i&#x3c;vecs.length; i++)
+        sum = m.addVec(sum,vecs[i]);
+    return m.activateVec(sum,function(x) {return 1.*x/vecs.length;});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    for(i=0; i&#x3c;vecs.length; i++)
+        sum = m.addVec(sum,vecs[i]);
+    return m.activateVec(sum,function(x) {return 1.*x/vecs.length;});
+};
+
+m.covarianceVecs = function(vecs) {
+    var mat = m.zeroMat(vecs[0].length,vecs[0].length);
+    var meanVec = m.<span class="apidocCodeKeywordSpan">meanVecs</span>(vecs);
+    var i;
+    for(i=0; i&#x3c;vecs.length; i++) {
+        var a = m.minusVec(vecs[i],meanVec);
+        mat = m.addMat(mat, m.mulMat(m.transpose([a]),[a]));
+    }
+    return m.activateMat(mat,function(x) { return 1.*x/(vecs.length-1);});
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.minMat" id="apidoc.element.machine_learning.math.minMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>minMat
+        <span class="apidocSignatureSpan">(mat)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">minMat = function (mat) {
+    var min = mat[0][0];
+    var i = mat.length;
+    while (i--) {
+        for(var j=0;j&#x3c;mat[0].length;j++) {
+            if(mat[i][j] &#x3c; min)
+                min = mat[i][j];
+        }
+    }
+    return min;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.minVec" id="apidoc.element.machine_learning.math.minVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>minVec
+        <span class="apidocSignatureSpan">(vec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">minVec = function (vec) {
+    var min = vec[0];
+    var i = vec.length;
+    while (i--) {
+        if (vec[i] &#x3c; min)
+            min = vec[i];
+    }
+    return min;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.minusMat" id="apidoc.element.machine_learning.math.minusMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>minusMat
+        <span class="apidocSignatureSpan">(mat1, mat2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">minusMat = function (mat1, mat2) {
+    if ((mat1.length === mat2.length) &#x26;&#x26; (mat1[0].length === mat2[0].length)) {
+        var result = new Array(mat1.length);
+        for (var i = 0; i &#x3c; mat1.length; i++) {
+            result[i] = new Array(mat1[i].length);
+            for (var j = 0; j &#x3c; mat1[i].length; j++) {
+                result[i][j] = mat1[i][j] - mat2[i][j];
+            }
+        }
+        return result;
+    } else {
+        throw new Error(&#x27;Matrix mismatch.&#x27;);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.minusMatVec" id="apidoc.element.machine_learning.math.minusMatVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>minusMatVec
+        <span class="apidocSignatureSpan">(mat, vec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">minusMatVec = function (mat, vec) {
+    if(mat[0].length === vec.length) {
+        var result = [];
+        var i;
+        for(i=0;i&#x3c;mat.length;i++)
+            result.push(m.minusVec(mat[i],vec));
+        return result;
+    } else {
+        throw new Error(&#x22;Length Error : not same.&#x22;)
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.minusVec" id="apidoc.element.machine_learning.math.minusVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>minusVec
+        <span class="apidocSignatureSpan">(vec1, vec2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">minusVec = function (vec1, vec2) {
+    if(vec1.length === vec2.length) {
+        var result = [];
+        var i;
+        for(i=0;i&#x3c;vec1.length;i++)
+            result.push(vec1[i]-vec2[i]);
+        return result;
+    } else {
+        throw new Error(&#x22;Length Error : not same.&#x22;)
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+m.minusMatVec = function(mat,vec) {
+    if(mat[0].length === vec.length) {
+        var result = [];
+        var i;
+        for(i=0;i&#x3c;mat.length;i++)
+            result.push(m.<span class="apidocCodeKeywordSpan">minusVec</span>(mat[i],vec));
+        return result;
+    } else {
+        throw new Error(&#x22;Length Error : not same.&#x22;)
+    }
+}
+
+m.addMat = function (mat1, mat2) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.mulMat" id="apidoc.element.machine_learning.math.mulMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>mulMat
+        <span class="apidocSignatureSpan">(mat1, mat2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mulMat = function (mat1, mat2) {
+    if (mat1[0].length === mat2.length) {
+        var result = new Array(mat1.length);
+
+        for (var x = 0; x &#x3c; mat1.length; x++) {
+            result[x] = new Array(mat2[0].length);
+        }
+
+
+        var mat2_T = m.transpose(mat2);
+        for (var i = 0; i &#x3c; result.length; i++) {
+            for (var j = 0; j &#x3c; result[i].length; j++) {
+                result[i][j] = m.dotVec(mat1[i],mat2_T[j]);
+            }
+        }
+        return result;
+    } else {
+        throw new Error(&#x22;Array mismatch&#x22;);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+HiddenLayer.prototype.output = function(input) {
+var self = this;
+if(typeof input !== &#x27;undefined&#x27;)
+    self.input = input;
+
+var linearOutput = math.addMatVec(math.<span class="apidocCodeKeywordSpan">mulMat</span>(self.input,self.W),self.b);
+return math.activateMat(linearOutput,self.activation);
+};
+
+HiddenLayer.prototype.linearOutput = function(input) { // returns the value before activation.
+var self = this;
+if(typeof input !== &#x27;undefined&#x27;)
+    self.input = input;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.mulMatElementWise" id="apidoc.element.machine_learning.math.mulMatElementWise">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>mulMatElementWise
+        <span class="apidocSignatureSpan">(mat1, mat2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mulMatElementWise = function (mat1, mat2) {
+    if (mat1.length === mat2.length &#x26;&#x26; mat1[0].length === mat2[0].length) {
+        var result = new Array(mat1.length);
+
+        for (var x = 0; x &#x3c; mat1.length; x++) {
+            result[x] = new Array(mat1[0].length);
+        }
+
+        for (var i = 0; i &#x3c; result.length; i++) {
+            for (var j = 0; j &#x3c; result[i].length; j++) {
+                result[i][j] = mat1[i][j] * mat2[i][j]
+            }
+        }
+        return result;
+    } else {
+        throw new Error(&#x22;Matrix shape error : not same&#x22;);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.mulMatScalar" id="apidoc.element.machine_learning.math.mulMatScalar">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>mulMatScalar
+        <span class="apidocSignatureSpan">(mat, scalar)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mulMatScalar = function (mat, scalar) {
+    var row = m.shape(mat)[0];
+    var col = m.shape(mat)[1];
+    var i , j,result = [];
+    for(i=0 ; i&#x3c;row ; i++) {
+        var rowVec = [];
+        for(j=0 ; j&#x3c;col ; j++) {
+            rowVec.push(mat[i][j] * scalar);
+        }
+        result.push(rowVec);
+    }
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.mulVecScalar" id="apidoc.element.machine_learning.math.mulVecScalar">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>mulVecScalar
+        <span class="apidocSignatureSpan">(vec, scalar)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mulVecScalar = function (vec, scalar) {
+    var i, result = [];
+    for(i=0;i&#x3c;vec.length;i++)
+        result.push(vec[i]*scalar);
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.normalizeVec" id="apidoc.element.machine_learning.math.normalizeVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>normalizeVec
+        <span class="apidocSignatureSpan">(vec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalizeVec = function (vec) {
+    var i;
+    var newVec = [],tot = 0;
+    for(i=0; i&#x3c;vec.length; i++)
+        tot += vec[i];
+    for(i=0; i&#x3c;vec.length;i++)
+        newVec.push(1.*vec[i]/tot);
+    return newVec;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.oneMat" id="apidoc.element.machine_learning.math.oneMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>oneMat
+        <span class="apidocSignatureSpan">(row, col)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">oneMat = function (row, col) {
+    var mat = [];
+    while(mat.length &#x3c; row)
+        mat.push(m.oneVec(col));
+    return mat;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.oneVec" id="apidoc.element.machine_learning.math.oneVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>oneVec
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">oneVec = function (n) {
+    var vec = [];
+    while(vec.length &#x3c; n)
+        vec.push(1);
+    return vec;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    vec.push(1);
+return vec;
+};
+
+m.oneMat = function(row,col) {
+var mat = [];
+while(mat.length &#x3c; row)
+    mat.push(m.<span class="apidocCodeKeywordSpan">oneVec</span>(col));
+return mat;
+};
+
+m.randVec = function(n,lower,upper) {
+lower = (typeof lower !== &#x27;undefined&#x27;) ? lower : 0;
+upper = (typeof upper !== &#x27;undefined&#x27;) ? upper : 1;
+var vec = [];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.outerVec" id="apidoc.element.machine_learning.math.outerVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>outerVec
+        <span class="apidocSignatureSpan">(vec1, vec2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">outerVec = function (vec1, vec2) {
+    var mat1 = m.transpose([vec1]);
+    var mat2 = [vec2];
+    return m.mulMat(mat1,mat2);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.pearson" id="apidoc.element.machine_learning.math.pearson">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>pearson
+        <span class="apidocSignatureSpan">(x, y)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pearson = function (x, y)
+{
+    var xy = [];
+    var x2 = [];
+    var y2 = [];
+
+    for(var i=0; i&#x3c;x.length; i++)
+    {
+        xy.push(x[i] * y[i]);
+        x2.push(x[i] * x[i]);
+        y2.push(y[i] * y[i]);
+    }
+
+    var sum_x = 0;
+    var sum_y = 0;
+    var sum_xy = 0;
+    var sum_x2 = 0;
+    var sum_y2 = 0;
+
+    for(var i=0; i&#x3c;x.length; i++)
+    {
+        sum_x += x[i];
+        sum_y += y[i];
+        sum_xy += xy[i];
+        sum_x2 += x2[i];
+        sum_y2 += y2[i];
+    }
+
+    var step1 = (x.length * sum_xy) - (sum_x * sum_y);
+    var step2 = (x.length * sum_x2) - (sum_x * sum_x);
+    var step3 = (x.length * sum_y2) - (sum_y * sum_y);
+    var step4 = Math.sqrt(step2 * step3);
+    var answer = step1 / step4;
+
+    return answer;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.probToBinaryMat" id="apidoc.element.machine_learning.math.probToBinaryMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>probToBinaryMat
+        <span class="apidocSignatureSpan">(mat)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">probToBinaryMat = function (mat) {
+    var row = m.shape(mat)[0];
+    var col = m.shape(mat)[1];
+    var i,j;
+    var result = [];
+
+    for(i=0;i&#x3c;row;i++) {
+        var rowVec = [];
+        for(j=0;j&#x3c;col;j++) {
+            if(Math.random() &#x3c; mat[i][j])
+                rowVec.push(1);
+            else
+                rowVec.push(0);
+        }
+        result.push(rowVec);
+    }
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.randInt" id="apidoc.element.machine_learning.math.randInt">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>randInt
+        <span class="apidocSignatureSpan">(min, max)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randInt = function (min, max) {
+  var rand = Math.random() * (max - min + 0.9999) + min
+  return Math.floor(rand);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.randMat" id="apidoc.element.machine_learning.math.randMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>randMat
+        <span class="apidocSignatureSpan">(row, col, lower, upper)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randMat = function (row, col, lower, upper) {
+    lower = (typeof lower !== &#x27;undefined&#x27;) ? lower : 0;
+    upper = (typeof upper !== &#x27;undefined&#x27;) ? upper : 1;
+    var mat = [];
+    while(mat.length &#x3c; row)
+        mat.push(m.randVec(col,lower,upper));
+    return mat;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var math = require(&#x27;./utils&#x27;).math;
+let HiddenLayer = module.exports = function (settings) {
+var self = this;
+self.input = settings[&#x27;input&#x27;];
+
+if(typeof settings[&#x27;W&#x27;] === &#x27;undefined&#x27;) {
+    var a = 1. / settings[&#x27;n_in&#x27;];
+    settings[&#x27;W&#x27;] = math.<span class="apidocCodeKeywordSpan">randMat</span>(settings[&#x27;n_in&#x27;],settings[&#x27;
+n_out&#x27;],-a,a);
+}
+if(typeof settings[&#x27;b&#x27;] === &#x27;undefined&#x27;)
+    settings[&#x27;b&#x27;] = math.zeroVec(settings[&#x27;n_out&#x27;]);
+if(typeof settings[&#x27;activation&#x27;] === &#x27;undefined&#x27;)
+    settings[&#x27;activation&#x27;] = math.sigmoid;
+
+self.W = settings[&#x27;W&#x27;];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.randVec" id="apidoc.element.machine_learning.math.randVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>randVec
+        <span class="apidocSignatureSpan">(n, lower, upper)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randVec = function (n, lower, upper) {
+    lower = (typeof lower !== &#x27;undefined&#x27;) ? lower : 0;
+    upper = (typeof upper !== &#x27;undefined&#x27;) ? upper : 1;
+    var vec = [];
+    while(vec.length &#x3c; n)
+        vec.push(lower + (upper-lower) * Math.random());
+    return vec;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+m.randMat = function(row,col,lower,upper) {
+lower = (typeof lower !== &#x27;undefined&#x27;) ? lower : 0;
+upper = (typeof upper !== &#x27;undefined&#x27;) ? upper : 1;
+var mat = [];
+while(mat.length &#x3c; row)
+    mat.push(m.<span class="apidocCodeKeywordSpan">randVec</span>(col,lower,upper));
+return mat;
+};
+
+m.randnVec = function(n,mean,sigma) {
+var vec = [];
+while(vec.length &#x3c; n)
+    vec.push(mean+sigma* m.randn());
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.randn" id="apidoc.element.machine_learning.math.randn">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>randn
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randn = function () {
+    // generate random guassian distribution number. (mean : 0, standard deviation : 1)
+    var v1, v2, s;
+
+    do {
+        v1 = 2 * Math.random() - 1;   // -1.0 ~ 1.0 까지의 값
+        v2 = 2 * Math.random() - 1;   // -1.0 ~ 1.0 까지의 값
+        s = v1 * v1 + v2 * v2;
+    } while (s &#x3e;= 1 || s == 0);
+
+    s = Math.sqrt( (-2 * Math.log(s)) / s );
+    return v1 * s;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    mat.push(m.randVec(col,lower,upper));
+return mat;
+};
+
+m.randnVec = function(n,mean,sigma) {
+var vec = [];
+while(vec.length &#x3c; n)
+    vec.push(mean+sigma* m.<span class="apidocCodeKeywordSpan">randn</span>());
+return vec;
+};
+
+m.randnMat = function(row,col,mean,sigma) {
+var mat = [];
+while(mat.length &#x3c; row)
+    mat.push(m.randnVec(col,mean,sigma));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.randnMat" id="apidoc.element.machine_learning.math.randnMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>randnMat
+        <span class="apidocSignatureSpan">(row, col, mean, sigma)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randnMat = function (row, col, mean, sigma) {
+    var mat = [];
+    while(mat.length &#x3c; row)
+        mat.push(m.randnVec(col,mean,sigma));
+    return mat;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.randnVec" id="apidoc.element.machine_learning.math.randnVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>randnVec
+        <span class="apidocSignatureSpan">(n, mean, sigma)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randnVec = function (n, mean, sigma) {
+    var vec = [];
+    while(vec.length &#x3c; n)
+        vec.push(mean+sigma* m.randn());
+    return vec;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    vec.push(mean+sigma* m.randn());
+return vec;
+};
+
+m.randnMat = function(row,col,mean,sigma) {
+var mat = [];
+while(mat.length &#x3c; row)
+    mat.push(m.<span class="apidocCodeKeywordSpan">randnVec</span>(col,mean,sigma));
+return mat;
+};
+
+m.identity = function (n) {
+var result = new Array(n);
+
+for (var i = 0; i &#x3c; n ; i++) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.range" id="apidoc.element.machine_learning.math.range">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>range
+        <span class="apidocSignatureSpan">(start, end, step)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">range = function (start, end, step) {
+    var ret = [];
+    if(typeof step === &#x22;undefined&#x22;)
+        step = 1;
+    if(typeof end === &#x22;undefined&#x22;) {
+        end = start;
+        start = 0;
+    }
+    for(var i=start;i&#x3c;end;i+=step)
+        ret.push(i);
+    return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.shape" id="apidoc.element.machine_learning.math.shape">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>shape
+        <span class="apidocSignatureSpan">(mat)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">shape = function (mat) {
+    var row = mat.length;
+    var col = mat[0].length;
+    return [row,col];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return result;
+} else {
+    throw new Error(&#x22;Length Error : not same.&#x22;)
+}
+};
+
+m.addMatScalar = function(mat,scalar) {
+var row = m.<span class="apidocCodeKeywordSpan">shape</span>(mat)[0];
+var col = m.shape(mat)[1];
+var i , j,result = [];
+for(i=0 ; i&#x3c;row ; i++) {
+    var rowVec = [];
+    for(j=0 ; j&#x3c;col ; j++) {
+        rowVec.push(mat[i][j] + scalar);
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.shuffle" id="apidoc.element.machine_learning.math.shuffle">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>shuffle
+        <span class="apidocSignatureSpan">(arr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">shuffle = function (arr){
+    var o = [];
+    for(var i=0;i&#x3c;arr.length;i++)
+        o.push(arr[i]); // deep copy
+    for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.sigmoid" id="apidoc.element.machine_learning.math.sigmoid">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>sigmoid
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sigmoid = function (x) {
+    var sigmoid = (1. / (1 + Math.exp(-x)))
+    if(sigmoid ==1) {
+     //   console.warn(&#x22;Something Wrong!! Sigmoid Function returns 1. Probably javascript float precision problem?\nSlightly Controlled
+ value to 1 - 1e-14&#x22;)
+        sigmoid = 0.99999999999999; // Javascript Float Precision Problem.. This is a limit of javascript.
+    } else if(sigmoid ==0) {
+      //  console.warn(&#x22;Something Wrong!! Sigmoid Function returns 0. Probably javascript float precision problem?\nSlightly Controlled
+ value to 1e-14&#x22;)
+        sigmoid = 1e-14;
+    }
+    return sigmoid; // sigmoid cannot be 0 or 1;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  //  console.warn(&#x22;Something Wrong!! Sigmoid Function returns 0. Probably javascript float precision problem?\nSlightly Controlled
+ value to 1e-14&#x22;)
+    sigmoid = 1e-14;
+}
+return sigmoid; // sigmoid cannot be 0 or 1;;
+};
+
+m.dSigmoid = function(x){
+a = m.<span class="apidocCodeKeywordSpan">sigmoid</span>(x);
+return a * (1. - a);
+};
+
+m.probToBinaryMat = function(mat) {
+var row = m.shape(mat)[0];
+var col = m.shape(mat)[1];
+var i,j;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.softmaxMat" id="apidoc.element.machine_learning.math.softmaxMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>softmaxMat
+        <span class="apidocSignatureSpan">(mat)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">softmaxMat = function (mat) {
+    var result=[], i;
+    for(i=0 ; i&#x3c;mat.length ; i++)
+        result.push(m.softmaxVec(mat[i]));
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.softmaxVec" id="apidoc.element.machine_learning.math.softmaxVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>softmaxVec
+        <span class="apidocSignatureSpan">(vec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">softmaxVec = function (vec) {
+    var max = m.maxVec(vec);
+    var preSoftmaxVec = m.activateVec(vec,function(x) {return Math.exp(x - max);})
+    return m.activateVec(preSoftmaxVec,function(x) {return x/ m.sumVec(preSoftmaxVec)})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var preSoftmaxVec = m.activateVec(vec,function(x) {return Math.exp(x - max);})
+    return m.activateVec(preSoftmaxVec,function(x) {return x/ m.sumVec(preSoftmaxVec)})
+};
+
+m.softmaxMat = function(mat) {
+    var result=[], i;
+    for(i=0 ; i&#x3c;mat.length ; i++)
+        result.push(m.<span class="apidocCodeKeywordSpan">softmaxVec</span>(mat[i]));
+    return result;
+};
+
+m.randInt = function(min,max) {
+  var rand = Math.random() * (max - min + 0.9999) + min
+  return Math.floor(rand);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.squareMat" id="apidoc.element.machine_learning.math.squareMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>squareMat
+        <span class="apidocSignatureSpan">(mat)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">squareMat = function (mat) {
+    var squareMat = [];
+    var i;
+    for(i=0;i&#x3c;mat.length;i++) {
+        squareMat.push(m.squareVec(mat[i]));
+    }
+    return squareMat;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.squareVec" id="apidoc.element.machine_learning.math.squareVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>squareVec
+        <span class="apidocSignatureSpan">(vec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">squareVec = function (vec) {
+    var squareVec = [];
+    var i;
+    for(i=0;i&#x3c;vec.length;i++) {
+        squareVec.push(vec[i]*vec[i]);
+    }
+    return squareVec;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return squareVec;
+};
+
+m.squareMat = function(mat) {
+var squareMat = [];
+var i;
+for(i=0;i&#x3c;mat.length;i++) {
+    squareMat.push(m.<span class="apidocCodeKeywordSpan">squareVec</span>(mat[i]));
+}
+return squareMat;
+};
+
+m.minVec = function(vec) {
+var min = vec[0];
+var i = vec.length;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.sumMat" id="apidoc.element.machine_learning.math.sumMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>sumMat
+        <span class="apidocSignatureSpan">(mat)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sumMat = function (mat) {
+    var sum = 0;
+    var i = mat.length;
+    while (i--) {
+        for(var j=0;j&#x3c;mat[0].length;j++)
+          sum += mat[i][j];
+    }
+    return sum;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+m.meanVec = function(vec) {
+return 1. * m.sumVec(vec) / vec.length;
+};
+
+m.meanMat = function(mat) {
+var row = mat.length;
+var col = mat[0].length;
+return 1. * m.<span class="apidocCodeKeywordSpan">sumMat</span>(mat) / (row * col);
+};
+
+m.meanMatAxis = function(mat,axis) {
+// default axis 0;
+// axis 0 : mean of col vector . axis 1 : mean of row vector
+if(axis === 1) {
+    var row = m.shape(mat)[0];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.sumMatAxis" id="apidoc.element.machine_learning.math.sumMatAxis">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>sumMatAxis
+        <span class="apidocSignatureSpan">(mat, axis)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sumMatAxis = function (mat, axis) {
+    // default axis 0;
+    // axis 0 : mean of col vector . axis 1 : mean of row vector
+    if(axis === 1) {
+        var row = m.shape(mat)[0];
+        var i ;
+        var result = [];
+        for(i=0 ; i&#x3c;row; i++)
+            result.push(m.sumVec(mat[i]));
+        return result;
+    } else {
+        mat_T = m.transpose(mat);
+        return m.sumMatAxis(mat_T,1);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        var i ;
+        var result = [];
+        for(i=0 ; i&#x3c;row; i++)
+            result.push(m.sumVec(mat[i]));
+        return result;
+    } else {
+        mat_T = m.transpose(mat);
+        return m.<span class="apidocCodeKeywordSpan">sumMatAxis</span>(mat_T,1);
+    }
+};
+
+m.meanVec = function(vec) {
+    return 1. * m.sumVec(vec) / vec.length;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.sumVec" id="apidoc.element.machine_learning.math.sumVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>sumVec
+        <span class="apidocSignatureSpan">(vec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sumVec = function (vec) {
+    var sum = 0;
+    var i = vec.length;
+    while (i--) {
+        sum += vec[i];
+    }
+    return sum;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    // default axis 0;
+    // axis 0 : mean of col vector . axis 1 : mean of row vector
+    if(axis === 1) {
+        var row = m.shape(mat)[0];
+        var i ;
+        var result = [];
+        for(i=0 ; i&#x3c;row; i++)
+            result.push(m.<span class="apidocCodeKeywordSpan">sumVec</span>(mat[i]));
+        return result;
+    } else {
+        mat_T = m.transpose(mat);
+        return m.sumMatAxis(mat_T,1);
+    }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.transpose" id="apidoc.element.machine_learning.math.transpose">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>transpose
+        <span class="apidocSignatureSpan">(mat)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">transpose = function (mat) {
+    var result = new Array(mat[0].length);
+    for (var i = 0; i &#x3c; mat[0].length; i++) {
+        result[i] = new Array(mat.length);
+        for (var j = 0; j &#x3c; mat.length; j++) {
+            result[i][j] = mat[j][i];
+        }
+    }
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+HiddenLayer.prototype.backPropagate = function (input) { // example+num * n_out matrix
+var self = this;
+if(typeof input === &#x27;undefined&#x27;)
+    throw new Error(&#x22;No BackPropagation Input.&#x22;)
+
+var linearOutput = math.mulMat(input, math.<span class="apidocCodeKeywordSpan">transpose</span>(self.W));
+return linearOutput;
+}
+
+HiddenLayer.prototype.sampleHgivenV = function(input) {
+var self = this;
+if(typeof input !== &#x27;undefined&#x27;)
+    self.input = input;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.zeroMat" id="apidoc.element.machine_learning.math.zeroMat">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>zeroMat
+        <span class="apidocSignatureSpan">(row, col)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">zeroMat = function (row, col) {
+    var mat = [];
+    while(mat.length &#x3c; row)
+        mat.push(m.zeroVec(col));
+    return mat;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var i;
+for(i=0; i&#x3c;vecs.length; i++)
+    sum = m.addVec(sum,vecs[i]);
+return m.activateVec(sum,function(x) {return 1.*x/vecs.length;});
+};
+
+m.covarianceVecs = function(vecs) {
+var mat = m.<span class="apidocCodeKeywordSpan">zeroMat</span>(vecs[0].length,vecs[0].length);
+var meanVec = m.meanVecs(vecs);
+var i;
+for(i=0; i&#x3c;vecs.length; i++) {
+    var a = m.minusVec(vecs[i],meanVec);
+    mat = m.addMat(mat, m.mulMat(m.transpose([a]),[a]));
+}
+return m.activateMat(mat,function(x) { return 1.*x/(vecs.length-1);});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.math.zeroVec" id="apidoc.element.machine_learning.math.zeroVec">
+        function <span class="apidocSignatureSpan">machine_learning.math.</span>zeroVec
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">zeroVec = function (n) {
+    var vec = [];
+    while(vec.length &#x3c; n)
+        vec.push(0);
+    return vec;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    self.input = settings[&#x27;input&#x27;];
+
+    if(typeof settings[&#x27;W&#x27;] === &#x27;undefined&#x27;) {
+        var a = 1. / settings[&#x27;n_in&#x27;];
+        settings[&#x27;W&#x27;] = math.randMat(settings[&#x27;n_in&#x27;],settings[&#x27;n_out&#x27;],-a,a);
+    }
+    if(typeof settings[&#x27;b&#x27;] === &#x27;undefined&#x27;)
+        settings[&#x27;b&#x27;] = math.<span class="apidocCodeKeywordSpan">zeroVec</span>(settings[&#x27;n_out&#x27;]);
+    if(typeof settings[&#x27;activation&#x27;] === &#x27;undefined&#x27;)
+        settings[&#x27;activation&#x27;] = math.sigmoid;
+
+    self.W = settings[&#x27;W&#x27;];
+    self.b = settings[&#x27;b&#x27;];
+    self.activation = settings[&#x27;activation&#x27;];
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.nmf" id="apidoc.module.machine_learning.nmf">module machine_learning.nmf</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.nmf.factorize" id="apidoc.element.machine_learning.nmf.factorize">
+        function <span class="apidocSignatureSpan">machine_learning.nmf.</span>factorize
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">factorize = function (options) {
+    var fc = options[&#x27;features&#x27;];
+    var matrix = options[&#x27;matrix&#x27;];
+    var epochs = options[&#x27;epochs&#x27;];
+    var row = math.shape(matrix)[0], col = math.shape(matrix)[1];
+    var a = math.randMat(row,fc,0,1);
+    var b = math.randMat(fc,col,0,1);
+
+    var i;
+    for(i=0 ; i&#x3c;epochs; i++) {
+        var ab = math.mulMat(a,b)
+      //  cost = difcost(ab,matrix);
+      //  if(i % 10 ==0) console.log(&#x22;cost &#x22;,cost);
+      //  if(cost == 0) break;
+        var bn = math.mulMat(math.transpose(a),matrix);
+        var bd = math.mulMat(math.mulMat(math.transpose(a),a),b);
+
+        b = math.activateTwoMat(math.mulMatElementWise(b,bn),bd,function(x,y){return x/y});
+
+        var an = math.mulMat(matrix, math.transpose(b));
+        var ad = math.mulMat(math.mulMat(a,b), math.transpose(b));
+
+        a = math.activateTwoMat(math.mulMatElementWise(a,an),ad,function(x,y){return x/y});
+    }
+    return [a,b];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## NMF (Non-negative matrix factorization)
+```javascript
+var ml = require(&#x27;machine_learning&#x27;);
+var matrix = [[22,28],
+              [49,64]];
+
+var result = ml.nmf.<span class="apidocCodeKeywordSpan">factorize</span>({
+    matrix : matrix,
+    features : 3,
+    epochs : 100
+});
+
+console.log(&#x22;First Matrix : &#x22;,result[0]);
+console.log(&#x22;Second Matrix : &#x22;,result[1]);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.optimize" id="apidoc.module.machine_learning.optimize">module machine_learning.optimize</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.optimize.anneal" id="apidoc.element.machine_learning.optimize.anneal">
+        function <span class="apidocSignatureSpan">machine_learning.optimize.</span>anneal
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">anneal = function (options){
+    var domain = options[&#x27;domain&#x27;];
+    var costf = options[&#x27;costf&#x27;];
+    var temperature = options[&#x27;temperature&#x27;];
+    var cool = options[&#x27;cool&#x27;];
+    var step = options[&#x27;step&#x27;];
+    var callback
+
+    var i;
+    var vec = [];
+    for(i=0 ; i&#x3c;domain.length ; i++)
+        vec.push(math.randInt(domain[i][0],domain[i][1]));
+
+    while(temperature &#x3e; 0.1) {
+        var idx = math.randInt(0,domain.length - 1);
+        var dir = math.randInt(-step,step);
+        var newVec = [];
+        for(i=0; i&#x3c;vec.length ; i++)
+            newVec.push(vec[i]);
+        newVec[idx]+=dir;
+        if(newVec[idx] &#x3c; domain[idx][0]) newVec[idx] = domain[idx][0];
+        if(newVec[idx] &#x3e; domain[idx][1]) newVec[idx] = domain[idx][1];
+
+        var ea = costf(vec);
+        var eb = costf(newVec);
+        var p = Math.exp(-1.*(eb-ea)/temperature);
+        if(eb &#x3c; ea || Math.random() &#x3c; p)
+            vec = newVec;
+
+        temperature *= cool;
+    }
+
+    return vec;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return cost;
+};
+
+var domain = [];
+for(var i=0;i&#x3c;15;i++)
+    domain.push([1,70]); // domain[idx][0] : minimum of vec[idx], domain[idx][1] : maximum of vec[idx].
+
+var vec = ml.optimize.<span class="apidocCodeKeywordSpan">anneal</span>({
+    domain : domain,
+    costf : costf,
+    temperature : 100000.0,
+    cool : 0.999,
+    step : 4
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.optimize.genetic" id="apidoc.element.machine_learning.optimize.genetic">
+        function <span class="apidocSignatureSpan">machine_learning.optimize.</span>genetic
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">genetic = function (options){
+    var domain = options[&#x27;domain&#x27;];
+    var costf = options[&#x27;costf&#x27;];
+    var population = options[&#x27;population&#x27;];
+    var q = options[&#x27;q&#x27;] || 0.3;
+    var elite = options[&#x27;elite&#x27;] || population * 0.04;
+    var epochs = options[&#x27;epochs&#x27;] || 100;
+
+    var i,j;
+    // Initialize population array
+    var pop =[];
+    for(i=0; i&#x3c;population; i++) {
+        var vec = [];
+        for(j=0; j&#x3c;domain.length; j++)
+            vec.push(math.randInt(domain[j][0],domain[j][1]));
+        pop.push(vec);
+    }
+    pop.sort(function(a,b){return costf(a) - costf(b);});
+
+    for(i=0 ; i&#x3c;epochs ; i++) {
+        // elitism
+        var newPop = [];
+        for(j=0;j&#x3c;elite;j++)
+            newPop.push(pop[j]);
+
+        // compute fitnesses
+        var fitnesses = [];
+        for(j=0; j&#x3c;pop.length; j++)
+            fitnesses[j] = q * Math.pow(1-q,j);
+        fitnesses = math.normalizeVec(fitnesses);
+
+        // crossover, mutate
+        for(j=0; j&#x3c;pop.length - elite;j++) {
+            var idx1 = rouletteWheel(fitnesses);
+            var idx2 = rouletteWheel(fitnesses);
+            var crossovered = crossover(pop[idx1],pop[idx2]);
+            var mutated = mutate(crossovered);
+            newPop.push(mutated);
+        }
+
+        // replacement
+        pop = newPop;
+        pop.sort(function(a,b){return costf(a) - costf(b);});
+       //console.log(&#x22;Current Cost : &#x22;,costf(pop[0]));
+    }
+    return pop[0];
+
+    function mutate(vec) {
+        var idx = math.randInt(0,domain.length - 1);
+        var newVec = [];
+        var i;
+        for(i=0; i&#x3c;domain.length ; i++)
+            newVec.push(vec[i]);
+        newVec[idx] += (Math.random() &#x3c; 0.5) ? 1 : -1;
+        if(newVec[idx] &#x3c; domain[idx][0]) newVec[idx] = domain[idx][0];
+        if(newVec[idx] &#x3e; domain[idx][1]) newVec[idx] = domain[idx][1];
+        return newVec;
+    }
+    function crossover(vec1,vec2) {
+        var idx = math.randInt(0,domain.length - 2);
+        var newVec = [];
+        var i;
+        for(i=0; i&#x3c;idx ; i++)
+            newVec.push(vec1[i]);
+        for(i=idx; i&#x3c;domain.length; i++)
+            newVec.push(vec2[i]);
+        return newVec;
+    }
+    function rouletteWheel(vec) {
+        var a = [0.0];
+        var i;
+        for(i=0;i&#x3c;vec.length;i++) {
+            a.push(a[i] + vec[i]);
+        }
+        var rand = Math.random();
+        for(i=0;i&#x3c; a.length;i++) {
+            if(rand &#x3e; a[i] &#x26;&#x26; rand &#x3c;= a[i+1])
+                return i;
+        }
+        return -1;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return cost;
+};
+
+var domain = [];
+for(var i=0;i&#x3c;15;i++)
+domain.push([1,70]); // domain[idx][0] : minimum of vec[idx], domain[idx][1] : maximum of vec[idx].
+
+var vec = ml.optimize.<span class="apidocCodeKeywordSpan">genetic</span>({
+domain : domain,
+costf : costf,
+population : 50,
+elite : 2, // elitism. number of elite chromosomes.
+epochs : 300,
+q : 0.3 // Rank-Based Fitness Assignment. fitness = q * (1-q)^(rank-1)
+        // higher q --&#x3e; higher selection pressure
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.optimize.hillclimb" id="apidoc.element.machine_learning.optimize.hillclimb">
+        function <span class="apidocSignatureSpan">machine_learning.optimize.</span>hillclimb
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hillclimb = function (options){
+    var domain = options[&#x27;domain&#x27;];
+    var costf = options[&#x27;costf&#x27;];
+
+    var i;
+    var vec = [];
+    for(i=0 ; i&#x3c;domain.length ; i++)
+        vec.push(math.randInt(domain[i][0],domain[i][1]));
+
+    var current, best;
+
+    while(true) {
+        var neighbors = [];
+        var i,j;
+
+        for(i=0 ; i&#x3c;domain.length ; i++) {
+            if(vec[i] &#x3e; domain[i][0]) {
+                var newVec = [];
+                for(j=0 ; j&#x3c;domain.length ; j++)
+                    newVec.push(vec[j]);
+                newVec[i]-=1;
+                neighbors.push(newVec);
+            } else if (vec[i] &#x3c; domain[i][1]) {
+                var newVec = [];
+                for(j=0 ; j&#x3c;domain.length ; j++)
+                    newVec.push(vec[j]);
+                newVec[i]+=1;
+                neighbors.push(newVec);
+            }
+        }
+
+        current = costf(vec);
+        best = current;
+        for(i=0 ; i&#x3c;neighbors.length ; i++) {
+            var cost = costf(neighbors[i]);
+            if(cost &#x3c; best) {
+                best = cost;
+                vec = neighbors[i];
+            }
+        }
+        if(best === current)
+            break;
+    }
+    return vec;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return cost;
+};
+
+var domain = [];
+for(var i=0;i&#x3c;15;i++)
+    domain.push([1,70]); // domain[idx][0] : minimum of vec[idx], domain[idx][1] : maximum of vec[idx].
+
+var vec = ml.optimize.<span class="apidocCodeKeywordSpan">hillclimb</span>({
+    domain : domain,
+    costf : costf
+});
+
+console.log(&#x22;vec : &#x22;,vec);
+console.log(&#x22;cost : &#x22;,costf(vec));
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.utils" id="apidoc.module.machine_learning.utils">module machine_learning.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.utils.isNumber" id="apidoc.element.machine_learning.utils.isNumber">
+        function <span class="apidocSignatureSpan">machine_learning.utils.</span>isNumber
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isNumber = function (n) {
+    return !isNaN(parseFloat(n)) &#x26;&#x26; isFinite(n);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
