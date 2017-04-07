@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"machine_learning",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "machine_learning",
+    "description": "api documentation for [machine_learning (v0.1.1)](http://joonku.com/project/machine_learning) [![npm package](https://img.shields.io/npm/v/npmdoc-machine_learning.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-machine_learning) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-machine_learning.svg)](https://travis-ci.org/npmdoc/node-npmdoc-machine_learning)",
     "devDependencies": {
-        "machine_learning": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "machine_learning": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-machine_learning",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-machine_learning",
+    "keywords": [
+        "documentation",
+        "machine_learning"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_machine_learning.js",
+    "name": "npmdoc-machine_learning",
+    "nameAlias": "npmdoc_machine_learning",
+    "nameOriginal": "npmdoc-machine_learning",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-machine_learning"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
