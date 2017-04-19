@@ -117,6 +117,12 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>machine_learning</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>DecisionTree.prototype</span>
 
         </li>
@@ -482,6 +488,73 @@
             function <span class="apidocSignatureSpan">machine_learning.kmeans.</span>cluster
             <span class="apidocSignatureSpan">(options)</span>
             </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.machine_learning">module machine_learning.machine_learning</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.DecisionTree">
+            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>DecisionTree
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.KNN">
+            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>KNN
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.LogisticRegression">
+            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>LogisticRegression
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.MLP">
+            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>MLP
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.SVM">
+            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>SVM
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>kmeans</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>nmf</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>optimize</span>
 
         </li>
 
@@ -1319,6 +1392,8 @@ C : 1.1, // default : 1.0. C in SVM.
 tol : 1e-5, // default : 1e-4. Higher tolerance --&#x3e; Higher precision
 ...</pre></li>
     </ul>
+
+
 
 
 
@@ -2498,6 +2573,228 @@ distance : {type : &#x22;pearson&#x22;}
 // {type : &#x27;pearson&#x27;}
 ...</pre></li>
     </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.machine_learning" id="apidoc.module.machine_learning.machine_learning">module machine_learning.machine_learning</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.machine_learning.DecisionTree" id="apidoc.element.machine_learning.machine_learning.DecisionTree">
+        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>DecisionTree
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">DecisionTree = function (options) {
+    var self = this;
+    self.data = options[&#x27;data&#x27;];
+    self.result = options[&#x27;result&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+           [&#x27;kiwitobes&#x27;,&#x27;UK&#x27;,&#x27;no&#x27;,19],
+           [&#x27;digg&#x27;,&#x27;New Zealand&#x27;,&#x27;yes&#x27;,12],
+           [&#x27;slashdot&#x27;,&#x27;UK&#x27;,&#x27;no&#x27;,21],
+           [&#x27;google&#x27;,&#x27;UK&#x27;,&#x27;yes&#x27;,18],
+           [&#x27;kiwitobes&#x27;,&#x27;France&#x27;,&#x27;yes&#x27;,19]];
+var result = [&#x27;None&#x27;,&#x27;Premium&#x27;,&#x27;Basic&#x27;,&#x27;Basic&#x27;,&#x27;Premium&#x27;,&#x27;None&#x27;,&#x27
+;Basic&#x27;,&#x27;Premium&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;Basic&#x27;,&#x27;None
+&#x27;,&#x27;Basic&#x27;,&#x27;Basic&#x27;];
+
+var dt = new ml.<span class="apidocCodeKeywordSpan">DecisionTree</span>({
+    data : data,
+    result : result
+});
+
+dt.build();
+
+// dt.print();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.machine_learning.KNN" id="apidoc.element.machine_learning.machine_learning.KNN">
+        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>KNN
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">KNN = function (options) {
+    var self = this;
+    self.data = options[&#x27;data&#x27;];
+    self.result = options[&#x27;result&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        [0,0,1,0,1,0,1,1,1,1,0,1,1,1],
+        [0,0,0,0,0,0,1,1,1,1,1,1,1,1],
+        [1,0,1,0,0,1,1,1,1,1,0,0,1,0]
+       ];
+
+var result = [23,12,23,23,45,70,123,73,146,158,64];
+
+var knn = new ml.<span class="apidocCodeKeywordSpan">KNN</span>({
+data : data,
+result : result
+});
+
+var y = knn.predict({
+x : [0,0,0,0,0,0,0,1,1,1,1,1,1,1],
+k : 3,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.machine_learning.LogisticRegression" id="apidoc.element.machine_learning.machine_learning.LogisticRegression">
+        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>LogisticRegression
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">LogisticRegression = function (settings) {
+    var self = this;
+    self.x = settings[&#x27;input&#x27;];
+    self.y = settings[&#x27;label&#x27;];
+    self.W = math.zeroMat(settings[&#x27;n_in&#x27;],settings[&#x27;n_out&#x27;]);
+    self.b = math.zeroVec(settings[&#x27;n_out&#x27;]);
+    self.settings = {
+        &#x27;log level&#x27; : 1 // 0 : nothing, 1 : info, 2: warn
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var y = [[1, 0],
+         [1, 0],
+         [1, 0],
+         [0, 1],
+         [0, 1],
+         [0, 1]];
+
+var classifier = new ml.<span class="apidocCodeKeywordSpan">LogisticRegression</span>({
+    &#x27;input&#x27; : x,
+    &#x27;label&#x27; : y,
+    &#x27;n_in&#x27; : 6,
+    &#x27;n_out&#x27; : 2
+});
+
+classifier.set(&#x27;log level&#x27;,1);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.machine_learning.MLP" id="apidoc.element.machine_learning.machine_learning.MLP">
+        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>MLP
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MLP = function (settings) {
+    var self = this;
+    self.x = settings[&#x27;input&#x27;];
+    self.y = settings[&#x27;label&#x27;];
+    self.sigmoidLayers = [];
+    self.nLayers = settings[&#x27;hidden_layer_sizes&#x27;].length;
+    self.settings = {
+        &#x27;log level&#x27; : 1 // 0 : nothing, 1 : info, 2: warn
+    };
+    var i;
+    for(i=0 ; i&#x3c;self.nLayers+1 ; i++) {
+        var inputSize, layerInput;
+        if(i == 0)
+            inputSize = settings[&#x27;n_ins&#x27;];
+        else
+            inputSize = settings[&#x27;hidden_layer_sizes&#x27;][i-1];
+
+        if(i == 0)
+            layerInput = self.x;
+        else
+            layerInput = self.sigmoidLayers[self.sigmoidLayers.length-1].sampleHgivenV();
+
+        var sigmoidLayer;
+        if(i == self.nLayers) {
+            sigmoidLayer = new HiddenLayer({
+                &#x27;input&#x27; : layerInput,
+                &#x27;n_in&#x27; : inputSize,
+                &#x27;n_out&#x27; : settings[&#x27;n_outs&#x27;],
+                &#x27;activation&#x27; : math.sigmoid,
+                &#x27;W&#x27; : (typeof settings[&#x27;w_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;w_array&#x27;][i],
+                &#x27;b&#x27; : (typeof settings[&#x27;b_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;b_array&#x27;][i]
+            });
+        } else {
+            sigmoidLayer = new HiddenLayer({
+                &#x27;input&#x27; : layerInput,
+                &#x27;n_in&#x27; : inputSize,
+                &#x27;n_out&#x27; : settings[&#x27;hidden_layer_sizes&#x27;][i],
+                &#x27;activation&#x27; : math.sigmoid,
+                &#x27;W&#x27; : (typeof settings[&#x27;w_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;w_array&#x27;][i],
+                &#x27;b&#x27; : (typeof settings[&#x27;b_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;b_array&#x27;][i]
+            });
+        }
+        self.sigmoidLayers.push(sigmoidLayer);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var y = [[1, 0],
+         [1, 0],
+         [1, 0],
+         [0, 1],
+         [0, 1],
+         [0, 1]];
+
+var mlp = new ml.<span class="apidocCodeKeywordSpan">MLP</span>({
+    &#x27;input&#x27; : x,
+    &#x27;label&#x27; : y,
+    &#x27;n_ins&#x27; : 6,
+    &#x27;n_outs&#x27; : 2,
+    &#x27;hidden_layer_sizes&#x27; : [4,4,5]
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.machine_learning.SVM" id="apidoc.element.machine_learning.machine_learning.SVM">
+        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>SVM
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">SVM = function (options) {
+    var self = this;
+    self.x = options[&#x27;x&#x27;];
+    self.y = options[&#x27;y&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     [0.2, 0.01, 0.5, 0.,  0.,  0.9],
+     [0.,  0.,  0.5, 0.3, 0.5, -2.3],
+     [0.,  0.,  0.5, 0.4, 0.5, 4],
+     [0.,  0.,  0.5, 0.5, 0.5, -2]];
+
+var y =  [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1];
+
+var svm = new ml.<span class="apidocCodeKeywordSpan">SVM</span>({
+x : x,
+y : y
+});
+
+svm.train({
+C : 1.1, // default : 1.0. C in SVM.
+tol : 1e-5, // default : 1e-4. Higher tolerance --&#x3e; Higher precision
+...</pre></li>
+    </ul>
+
+
+
+
+
+
 
 
 </div>

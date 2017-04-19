@@ -110,6 +110,12 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>machine_learning</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>DecisionTree.prototype</span>
 
         </li>
@@ -475,6 +481,73 @@
             function <span class="apidocSignatureSpan">machine_learning.kmeans.</span>cluster
             <span class="apidocSignatureSpan">(options)</span>
             </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.machine_learning">module machine_learning.machine_learning</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.DecisionTree">
+            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>DecisionTree
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.KNN">
+            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>KNN
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.LogisticRegression">
+            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>LogisticRegression
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.MLP">
+            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>MLP
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.SVM">
+            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>SVM
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>kmeans</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>nmf</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>optimize</span>
 
         </li>
 
@@ -1312,6 +1385,8 @@ C : 1.1, // default : 1.0. C in SVM.
 tol : 1e-5, // default : 1e-4. Higher tolerance --&gt; Higher precision
 ...</pre></li>
     </ul>
+
+
 
 
 
@@ -2491,6 +2566,228 @@ distance : {type : "pearson"}
 // {type : 'pearson'}
 ...</pre></li>
     </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.machine_learning.machine_learning" id="apidoc.module.machine_learning.machine_learning">module machine_learning.machine_learning</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.machine_learning.DecisionTree" id="apidoc.element.machine_learning.machine_learning.DecisionTree">
+        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>DecisionTree
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">DecisionTree = function (options) {
+    var self = this;
+    self.data = options['data'];
+    self.result = options['result'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+           ['kiwitobes','UK','no',19],
+           ['digg','New Zealand','yes',12],
+           ['slashdot','UK','no',21],
+           ['google','UK','yes',18],
+           ['kiwitobes','France','yes',19]];
+var result = ['None','Premium','Basic','Basic','Premium','None','
+;Basic','Premium','None','None','None','None','Basic','None
+','Basic','Basic'];
+
+var dt = new ml.<span class="apidocCodeKeywordSpan">DecisionTree</span>({
+    data : data,
+    result : result
+});
+
+dt.build();
+
+// dt.print();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.machine_learning.KNN" id="apidoc.element.machine_learning.machine_learning.KNN">
+        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>KNN
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">KNN = function (options) {
+    var self = this;
+    self.data = options['data'];
+    self.result = options['result'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        [0,0,1,0,1,0,1,1,1,1,0,1,1,1],
+        [0,0,0,0,0,0,1,1,1,1,1,1,1,1],
+        [1,0,1,0,0,1,1,1,1,1,0,0,1,0]
+       ];
+
+var result = [23,12,23,23,45,70,123,73,146,158,64];
+
+var knn = new ml.<span class="apidocCodeKeywordSpan">KNN</span>({
+data : data,
+result : result
+});
+
+var y = knn.predict({
+x : [0,0,0,0,0,0,0,1,1,1,1,1,1,1],
+k : 3,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.machine_learning.LogisticRegression" id="apidoc.element.machine_learning.machine_learning.LogisticRegression">
+        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>LogisticRegression
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">LogisticRegression = function (settings) {
+    var self = this;
+    self.x = settings['input'];
+    self.y = settings['label'];
+    self.W = math.zeroMat(settings['n_in'],settings['n_out']);
+    self.b = math.zeroVec(settings['n_out']);
+    self.settings = {
+        'log level' : 1 // 0 : nothing, 1 : info, 2: warn
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var y = [[1, 0],
+         [1, 0],
+         [1, 0],
+         [0, 1],
+         [0, 1],
+         [0, 1]];
+
+var classifier = new ml.<span class="apidocCodeKeywordSpan">LogisticRegression</span>({
+    'input' : x,
+    'label' : y,
+    'n_in' : 6,
+    'n_out' : 2
+});
+
+classifier.set('log level',1);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.machine_learning.MLP" id="apidoc.element.machine_learning.machine_learning.MLP">
+        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>MLP
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MLP = function (settings) {
+    var self = this;
+    self.x = settings['input'];
+    self.y = settings['label'];
+    self.sigmoidLayers = [];
+    self.nLayers = settings['hidden_layer_sizes'].length;
+    self.settings = {
+        'log level' : 1 // 0 : nothing, 1 : info, 2: warn
+    };
+    var i;
+    for(i=0 ; i&lt;self.nLayers+1 ; i++) {
+        var inputSize, layerInput;
+        if(i == 0)
+            inputSize = settings['n_ins'];
+        else
+            inputSize = settings['hidden_layer_sizes'][i-1];
+
+        if(i == 0)
+            layerInput = self.x;
+        else
+            layerInput = self.sigmoidLayers[self.sigmoidLayers.length-1].sampleHgivenV();
+
+        var sigmoidLayer;
+        if(i == self.nLayers) {
+            sigmoidLayer = new HiddenLayer({
+                'input' : layerInput,
+                'n_in' : inputSize,
+                'n_out' : settings['n_outs'],
+                'activation' : math.sigmoid,
+                'W' : (typeof settings['w_array'] === 'undefined')? undefined : settings['w_array'][i],
+                'b' : (typeof settings['b_array'] === 'undefined')? undefined : settings['b_array'][i]
+            });
+        } else {
+            sigmoidLayer = new HiddenLayer({
+                'input' : layerInput,
+                'n_in' : inputSize,
+                'n_out' : settings['hidden_layer_sizes'][i],
+                'activation' : math.sigmoid,
+                'W' : (typeof settings['w_array'] === 'undefined')? undefined : settings['w_array'][i],
+                'b' : (typeof settings['b_array'] === 'undefined')? undefined : settings['b_array'][i]
+            });
+        }
+        self.sigmoidLayers.push(sigmoidLayer);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var y = [[1, 0],
+         [1, 0],
+         [1, 0],
+         [0, 1],
+         [0, 1],
+         [0, 1]];
+
+var mlp = new ml.<span class="apidocCodeKeywordSpan">MLP</span>({
+    'input' : x,
+    'label' : y,
+    'n_ins' : 6,
+    'n_outs' : 2,
+    'hidden_layer_sizes' : [4,4,5]
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.machine_learning.machine_learning.SVM" id="apidoc.element.machine_learning.machine_learning.SVM">
+        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>SVM
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">SVM = function (options) {
+    var self = this;
+    self.x = options['x'];
+    self.y = options['y'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     [0.2, 0.01, 0.5, 0.,  0.,  0.9],
+     [0.,  0.,  0.5, 0.3, 0.5, -2.3],
+     [0.,  0.,  0.5, 0.4, 0.5, 4],
+     [0.,  0.,  0.5, 0.5, 0.5, -2]];
+
+var y =  [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1];
+
+var svm = new ml.<span class="apidocCodeKeywordSpan">SVM</span>({
+x : x,
+y : y
+});
+
+svm.train({
+C : 1.1, // default : 1.0. C in SVM.
+tol : 1e-5, // default : 1e-4. Higher tolerance --&gt; Higher precision
+...</pre></li>
+    </ul>
+
+
+
+
+
+
 
 
 </div>
