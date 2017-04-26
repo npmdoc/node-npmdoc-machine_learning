@@ -1,6 +1,6 @@
 # npmdoc-machine_learning
 
-#### api documentation for  [machine_learning (v0.1.1)](http://joonku.com/project/machine_learning)  [![npm package](https://img.shields.io/npm/v/npmdoc-machine_learning.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-machine_learning) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-machine_learning.svg)](https://travis-ci.org/npmdoc/node-npmdoc-machine_learning)
+#### basic api documentation for  [machine_learning (v0.1.1)](http://joonku.com/project/machine_learning)  [![npm package](https://img.shields.io/npm/v/npmdoc-machine_learning.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-machine_learning) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-machine_learning.svg)](https://travis-ci.org/npmdoc/node-npmdoc-machine_learning)
 
 #### Machine learning library for Node.js. You can also use this library in browser.
 
@@ -67,7 +67,8 @@
         "url": "git://github.com/junku901/machine_learning.git"
     },
     "scripts": {},
-    "version": "0.1.1"
+    "version": "0.1.1",
+    "bin": {}
 }
 ```
 
