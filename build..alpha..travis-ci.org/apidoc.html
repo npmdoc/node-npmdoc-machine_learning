@@ -117,12 +117,6 @@
 
         <li>
 
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>machine_learning</span>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.</span>DecisionTree.prototype</span>
 
         </li>
@@ -488,73 +482,6 @@
             function <span class="apidocSignatureSpan">machine_learning.kmeans.</span>cluster
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.machine_learning.machine_learning">module machine_learning.machine_learning</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.DecisionTree">
-            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>DecisionTree
-            <span class="apidocSignatureSpan">(options)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.KNN">
-            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>KNN
-            <span class="apidocSignatureSpan">(options)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.LogisticRegression">
-            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>LogisticRegression
-            <span class="apidocSignatureSpan">(settings)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.MLP">
-            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>MLP
-            <span class="apidocSignatureSpan">(settings)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.machine_learning.machine_learning.SVM">
-            function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>SVM
-            <span class="apidocSignatureSpan">(options)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>kmeans</span>
-
-        </li>
-
-        <li>
-
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>nmf</span>
-
-        </li>
-
-        <li>
-
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>optimize</span>
 
         </li>
 
@@ -1416,8 +1343,6 @@ tol : 1e-5, // default : 1e-4. Higher tolerance --&#x3e; Higher precision
 
 
 
-
-
 </div>
 
 <div class="apidocSectionDiv">
@@ -1671,7 +1596,24 @@ var matrix = [[22,28],
     var linearOutput = math.mulMat(input, math.transpose(self.W));
     return linearOutput;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/*
+ self.nLayers = 3 (3 hidden layers)
+ delta[3] : ouput layer
+ delta[2] : 3rd hidden layer, delta[0] : 1st hidden layer
+ */
+for(i = self.nLayers - 1; i&#x3e;=0 ; i--) {
+    delta[i] = math.mulMatElementWise(self.sigmoidLayers[i+1].<span class="apidocCodeKeywordSpan">backPropagate</span>(delta[i+1
+]),
+        math.activateMat(self.sigmoidLayers[i].linearOutput(layerInput[i]), math.dSigmoid));
+}
+// Update Weight, Bias
+for(var i=0; i&#x3c;self.nLayers+1 ; i++) {
+    var deltaW = math.activateMat(math.mulMat(math.transpose(layerInput[i]),delta[i]),function(x){return 1. * x / self.x.length;})
+    var deltaB = math.meanMatAxis(delta[i],0);
+    self.sigmoidLayers[i].W = math.addMat(self.sigmoidLayers[i].W,deltaW);
+...</pre></li>
     </ul>
 
 
@@ -1691,7 +1633,24 @@ var matrix = [[22,28],
     var linearOutput = math.addMatVec(math.mulMat(self.input,self.W),self.b);
     return linearOutput;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+for(i=0; i&#x3c;self.nLayers+1 ; i++) {
+    layerInput.push(self.sigmoidLayers[i].output(layerInput[i]));
+}
+var output = layerInput[self.nLayers+1];
+// Back Propagation
+var delta = new Array(self.nLayers + 1);
+delta[self.nLayers] = math.mulMatElementWise(math.minusMat(self.y, output),
+    math.activateMat(self.sigmoidLayers[self.nLayers].<span class="apidocCodeKeywordSpan">linearOutput</span>(layerInput[self.nLayers
+]), math.dSigmoid));
+
+/*
+ self.nLayers = 3 (3 hidden layers)
+ delta[3] : ouput layer
+ delta[2] : 3rd hidden layer, delta[0] : 1st hidden layer
+ */
+for(i = self.nLayers - 1; i&#x3e;=0 ; i--) {
+...</pre></li>
     </ul>
 
 
@@ -1711,7 +1670,22 @@ var matrix = [[22,28],
     var linearOutput = math.addMatVec(math.mulMat(self.input,self.W),self.b);
     return math.activateMat(linearOutput,self.activation);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    for(epoch=0 ; epoch &#x3c; epochs ; epoch++) {
+
+// Feed Forward
+var i;
+var layerInput = [];
+layerInput.push(self.x);
+for(i=0; i&#x3c;self.nLayers+1 ; i++) {
+    layerInput.push(self.sigmoidLayers[i].<span class="apidocCodeKeywordSpan">output</span>(layerInput[i]));
+}
+var output = layerInput[self.nLayers+1];
+// Back Propagation
+var delta = new Array(self.nLayers + 1);
+delta[self.nLayers] = math.mulMatElementWise(math.minusMat(self.y, output),
+    math.activateMat(self.sigmoidLayers[self.nLayers].linearOutput(layerInput[self.nLayers]), math.dSigmoid));
+...</pre></li>
     </ul>
 
 
@@ -1732,7 +1706,23 @@ var matrix = [[22,28],
     var hSample = math.probToBinaryMat(hMean);
     return hSample;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    inputSize = settings[&#x27;n_ins&#x27;];
+else
+    inputSize = settings[&#x27;hidden_layer_sizes&#x27;][i-1];
+
+if(i == 0)
+    layerInput = self.x;
+else
+    layerInput = self.sigmoidLayers[self.sigmoidLayers.length-1].<span class="apidocCodeKeywordSpan">sampleHgivenV</span>();
+
+var sigmoidLayer;
+if(i == self.nLayers) {
+    sigmoidLayer = new HiddenLayer({
+        &#x27;input&#x27; : layerInput,
+        &#x27;n_in&#x27; : inputSize,
+        &#x27;n_out&#x27; : settings[&#x27;n_outs&#x27;],
+...</pre></li>
     </ul>
 
 
@@ -1896,7 +1886,24 @@ classifier.set(&#x27;log level&#x27;,1);
     var crossEntropy = -math.meanVec(math.sumMatAxis(math.addMat(a,b),1));
     return crossEntropy;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        if(progress &#x3e; currentProgress) {
+            console.log(&#x22;LogisticRegression&#x22;,progress.toFixed(0),&#x22;% Completed.&#x22;);
+            currentProgress++;
+        }
+    }
+}
+if(self.settings[&#x27;log level&#x27;] &#x3e; 0)
+    console.log(&#x22;LogisticRegression Final Cross Entropy : &#x22;,self.<span class="apidocCodeKeywordSpan">getReconstructionCrossEntropy
+</span>());
+};
+
+LogisticRegression.prototype.getReconstructionCrossEntropy = function () {
+var self = this;
+var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+var a = math.mulMatElementWise(self.y, math.activateMat(probYgivenX,Math.log));
+var b = math.mulMatElementWise(math.mulMatScalar(math.addMatScalar(self.y,-1),-1),
+...</pre></li>
     </ul>
 
 
@@ -2127,7 +2134,24 @@ var mlp = new ml.<span class="apidocCodeKeywordSpan">MLP</span>({
     var crossEntropy = -math.meanVec(math.sumMatAxis(math.addMat(a,b),1));
     return crossEntropy
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        if(progress &#x3e; currentProgress) {
+            console.log(&#x22;LogisticRegression&#x22;,progress.toFixed(0),&#x22;% Completed.&#x22;);
+            currentProgress++;
+        }
+    }
+}
+if(self.settings[&#x27;log level&#x27;] &#x3e; 0)
+    console.log(&#x22;LogisticRegression Final Cross Entropy : &#x22;,self.<span class="apidocCodeKeywordSpan">getReconstructionCrossEntropy
+</span>());
+};
+
+LogisticRegression.prototype.getReconstructionCrossEntropy = function () {
+var self = this;
+var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+var a = math.mulMatElementWise(self.y, math.activateMat(probYgivenX,Math.log));
+var b = math.mulMatElementWise(math.mulMatScalar(math.addMatScalar(self.y,-1),-1),
+...</pre></li>
     </ul>
 
 
@@ -2341,7 +2365,23 @@ tol : 1e-5, // default : 1e-4. Higher tolerance --&#x3e; Higher precision
     f += self.b;
     return f;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var passes = 0, i;
+    var count=0;
+    while(passes &#x3c; maxPasses) {
+        var numChangedAlphas = 0;
+
+        for(i=0; i&#x3c;self.x.length; i++) {
+
+            var E_i = self.<span class="apidocCodeKeywordSpan">f</span>(self.x[i]) - self.y[i];
+
+            if((self.y[i] * E_i &#x3c; -tol &#x26;&#x26; self.alphas[i] &#x3c; C) || (self.y[i] * E_i &#x3e; tol &#x26;&#x26; self
+.alphas[i] &#x3e;0)) {
+
+// Randomly selects j (i != j)
+var j = math.randInt(0,self.x.length-1);
+if(i==j) j = (j+1) % self.x.length;
+...</pre></li>
     </ul>
 
 
@@ -2578,228 +2618,6 @@ distance : {type : &#x22;pearson&#x22;}
 </div>
 
 <div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.machine_learning.machine_learning" id="apidoc.module.machine_learning.machine_learning">module machine_learning.machine_learning</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.machine_learning.machine_learning.DecisionTree" id="apidoc.element.machine_learning.machine_learning.DecisionTree">
-        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>DecisionTree
-        <span class="apidocSignatureSpan">(options)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">DecisionTree = function (options) {
-    var self = this;
-    self.data = options[&#x27;data&#x27;];
-    self.result = options[&#x27;result&#x27;];
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-           [&#x27;kiwitobes&#x27;,&#x27;UK&#x27;,&#x27;no&#x27;,19],
-           [&#x27;digg&#x27;,&#x27;New Zealand&#x27;,&#x27;yes&#x27;,12],
-           [&#x27;slashdot&#x27;,&#x27;UK&#x27;,&#x27;no&#x27;,21],
-           [&#x27;google&#x27;,&#x27;UK&#x27;,&#x27;yes&#x27;,18],
-           [&#x27;kiwitobes&#x27;,&#x27;France&#x27;,&#x27;yes&#x27;,19]];
-var result = [&#x27;None&#x27;,&#x27;Premium&#x27;,&#x27;Basic&#x27;,&#x27;Basic&#x27;,&#x27;Premium&#x27;,&#x27;None&#x27;,&#x27
-;Basic&#x27;,&#x27;Premium&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;None&#x27;,&#x27;Basic&#x27;,&#x27;None
-&#x27;,&#x27;Basic&#x27;,&#x27;Basic&#x27;];
-
-var dt = new ml.<span class="apidocCodeKeywordSpan">DecisionTree</span>({
-    data : data,
-    result : result
-});
-
-dt.build();
-
-// dt.print();
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.machine_learning.machine_learning.KNN" id="apidoc.element.machine_learning.machine_learning.KNN">
-        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>KNN
-        <span class="apidocSignatureSpan">(options)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">KNN = function (options) {
-    var self = this;
-    self.data = options[&#x27;data&#x27;];
-    self.result = options[&#x27;result&#x27;];
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-        [0,0,1,0,1,0,1,1,1,1,0,1,1,1],
-        [0,0,0,0,0,0,1,1,1,1,1,1,1,1],
-        [1,0,1,0,0,1,1,1,1,1,0,0,1,0]
-       ];
-
-var result = [23,12,23,23,45,70,123,73,146,158,64];
-
-var knn = new ml.<span class="apidocCodeKeywordSpan">KNN</span>({
-data : data,
-result : result
-});
-
-var y = knn.predict({
-x : [0,0,0,0,0,0,0,1,1,1,1,1,1,1],
-k : 3,
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.machine_learning.machine_learning.LogisticRegression" id="apidoc.element.machine_learning.machine_learning.LogisticRegression">
-        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>LogisticRegression
-        <span class="apidocSignatureSpan">(settings)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">LogisticRegression = function (settings) {
-    var self = this;
-    self.x = settings[&#x27;input&#x27;];
-    self.y = settings[&#x27;label&#x27;];
-    self.W = math.zeroMat(settings[&#x27;n_in&#x27;],settings[&#x27;n_out&#x27;]);
-    self.b = math.zeroVec(settings[&#x27;n_out&#x27;]);
-    self.settings = {
-        &#x27;log level&#x27; : 1 // 0 : nothing, 1 : info, 2: warn
-    };
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-var y = [[1, 0],
-         [1, 0],
-         [1, 0],
-         [0, 1],
-         [0, 1],
-         [0, 1]];
-
-var classifier = new ml.<span class="apidocCodeKeywordSpan">LogisticRegression</span>({
-    &#x27;input&#x27; : x,
-    &#x27;label&#x27; : y,
-    &#x27;n_in&#x27; : 6,
-    &#x27;n_out&#x27; : 2
-});
-
-classifier.set(&#x27;log level&#x27;,1);
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.machine_learning.machine_learning.MLP" id="apidoc.element.machine_learning.machine_learning.MLP">
-        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>MLP
-        <span class="apidocSignatureSpan">(settings)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">MLP = function (settings) {
-    var self = this;
-    self.x = settings[&#x27;input&#x27;];
-    self.y = settings[&#x27;label&#x27;];
-    self.sigmoidLayers = [];
-    self.nLayers = settings[&#x27;hidden_layer_sizes&#x27;].length;
-    self.settings = {
-        &#x27;log level&#x27; : 1 // 0 : nothing, 1 : info, 2: warn
-    };
-    var i;
-    for(i=0 ; i&#x3c;self.nLayers+1 ; i++) {
-        var inputSize, layerInput;
-        if(i == 0)
-            inputSize = settings[&#x27;n_ins&#x27;];
-        else
-            inputSize = settings[&#x27;hidden_layer_sizes&#x27;][i-1];
-
-        if(i == 0)
-            layerInput = self.x;
-        else
-            layerInput = self.sigmoidLayers[self.sigmoidLayers.length-1].sampleHgivenV();
-
-        var sigmoidLayer;
-        if(i == self.nLayers) {
-            sigmoidLayer = new HiddenLayer({
-                &#x27;input&#x27; : layerInput,
-                &#x27;n_in&#x27; : inputSize,
-                &#x27;n_out&#x27; : settings[&#x27;n_outs&#x27;],
-                &#x27;activation&#x27; : math.sigmoid,
-                &#x27;W&#x27; : (typeof settings[&#x27;w_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;w_array&#x27;][i],
-                &#x27;b&#x27; : (typeof settings[&#x27;b_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;b_array&#x27;][i]
-            });
-        } else {
-            sigmoidLayer = new HiddenLayer({
-                &#x27;input&#x27; : layerInput,
-                &#x27;n_in&#x27; : inputSize,
-                &#x27;n_out&#x27; : settings[&#x27;hidden_layer_sizes&#x27;][i],
-                &#x27;activation&#x27; : math.sigmoid,
-                &#x27;W&#x27; : (typeof settings[&#x27;w_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;w_array&#x27;][i],
-                &#x27;b&#x27; : (typeof settings[&#x27;b_array&#x27;] === &#x27;undefined&#x27;)? undefined : settings[&#x27;b_array&#x27;][i]
-            });
-        }
-        self.sigmoidLayers.push(sigmoidLayer);
-    }
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-var y = [[1, 0],
-         [1, 0],
-         [1, 0],
-         [0, 1],
-         [0, 1],
-         [0, 1]];
-
-var mlp = new ml.<span class="apidocCodeKeywordSpan">MLP</span>({
-    &#x27;input&#x27; : x,
-    &#x27;label&#x27; : y,
-    &#x27;n_ins&#x27; : 6,
-    &#x27;n_outs&#x27; : 2,
-    &#x27;hidden_layer_sizes&#x27; : [4,4,5]
-});
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.machine_learning.machine_learning.SVM" id="apidoc.element.machine_learning.machine_learning.SVM">
-        function <span class="apidocSignatureSpan">machine_learning.machine_learning.</span>SVM
-        <span class="apidocSignatureSpan">(options)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">SVM = function (options) {
-    var self = this;
-    self.x = options[&#x27;x&#x27;];
-    self.y = options[&#x27;y&#x27;];
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-     [0.2, 0.01, 0.5, 0.,  0.,  0.9],
-     [0.,  0.,  0.5, 0.3, 0.5, -2.3],
-     [0.,  0.,  0.5, 0.4, 0.5, 4],
-     [0.,  0.,  0.5, 0.5, 0.5, -2]];
-
-var y =  [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1];
-
-var svm = new ml.<span class="apidocCodeKeywordSpan">SVM</span>({
-x : x,
-y : y
-});
-
-svm.train({
-C : 1.1, // default : 1.0. C in SVM.
-tol : 1e-5, // default : 1e-4. Higher tolerance --&#x3e; Higher precision
-...</pre></li>
-    </ul>
-
-
-
-
-
-
-
-
-</div>
-
-<div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.machine_learning.math" id="apidoc.module.machine_learning.math">module machine_learning.math</a></h1>
 
 
@@ -2867,7 +2685,22 @@ if(typeof input !== &#x27;undefined&#x27;)
         throw new Error(&#x22;Matrix shape error : not same&#x22;);
     }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if(self.settings[&#x27;log level&#x27;] &#x3e; 0)
+    console.log(&#x22;MLP Final Cross Entropy : &#x22;,self.getReconstructionCrossEntropy());
+};
+
+MLP.prototype.getReconstructionCrossEntropy = function() {
+var self = this;
+var reconstructedOutput = self.predict(self.x);
+var a = math.<span class="apidocCodeKeywordSpan">activateTwoMat</span>(self.y,reconstructedOutput,function(x,y){
+    return x*Math.log(y);
+});
+
+var b = math.activateTwoMat(self.y,reconstructedOutput,function(x,y){
+    return (1-x)*Math.log(1-y);
+});
+...</pre></li>
     </ul>
 
 
@@ -2951,21 +2784,21 @@ for(i=0 ; i&#x3c;mat.length ; i++)
     }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+    for(i=0;i&#x3c;epochs;i++) {
+var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+var deltaY = math.minusMat(self.y,probYgivenX);
 
-m.covarianceVecs = function(vecs) {
-var mat = m.zeroMat(vecs[0].length,vecs[0].length);
-var meanVec = m.meanVecs(vecs);
-var i;
-for(i=0; i&#x3c;vecs.length; i++) {
-    var a = m.minusVec(vecs[i],meanVec);
-    mat = m.<span class="apidocCodeKeywordSpan">addMat</span>(mat, m.mulMat(m.transpose([a]),[a]));
-}
-return m.activateMat(mat,function(x) { return 1.*x/(vecs.length-1);});
-};
+var deltaW = math.mulMat(math.transpose(self.x),deltaY);
+var deltaB = math.meanMatAxis(deltaY,0);
 
-m.shuffle = function(arr){
-var o = [];
-for(var i=0;i&#x3c;arr.length;i++)
+self.W = math.<span class="apidocCodeKeywordSpan">addMat</span>(self.W,math.mulMatScalar(deltaW,lr));
+self.b = math.addVec(self.b,math.mulVecScalar(deltaB,lr));
+if(self.settings[&#x27;log level&#x27;] &#x3e; 0) {
+    var progress = (1.*i/epochs)*100;
+    if(progress &#x3e; currentProgress) {
+        console.log(&#x22;LogisticRegression&#x22;,progress.toFixed(0),&#x22;% Completed.&#x22;);
+        currentProgress++;
+    }
 ...</pre></li>
     </ul>
 
@@ -2991,7 +2824,23 @@ for(var i=0;i&#x3c;arr.length;i++)
     }
     return result;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    console.log(&#x22;LogisticRegression Final Cross Entropy : &#x22;,self.getReconstructionCrossEntropy());
+};
+
+LogisticRegression.prototype.getReconstructionCrossEntropy = function () {
+var self = this;
+var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+var a = math.mulMatElementWise(self.y, math.activateMat(probYgivenX,Math.log));
+var b = math.mulMatElementWise(math.mulMatScalar(math.<span class="apidocCodeKeywordSpan">addMatScalar</span>(self.y,-1),-1),
+    math.activateMat(math.mulMatScalar(math.addMatScalar(probYgivenX,-1),-1),Math.log));
+var crossEntropy = -math.meanVec(math.sumMatAxis(math.addMat(a,b),1));
+return crossEntropy;
+};
+
+LogisticRegression.prototype.predict = function (x) {
+var self = this;
+...</pre></li>
     </ul>
 
 
@@ -3054,21 +2903,21 @@ if(typeof input !== &#x27;undefined&#x27;)
     }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-}
+var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+var deltaY = math.minusMat(self.y,probYgivenX);
 
-m.addMatVec = function(mat,vec) {
-    if(mat[0].length === vec.length) {
-        var result = [];
-        var i;
-        for(i=0;i&#x3c;mat.length;i++)
-            result.push(m.<span class="apidocCodeKeywordSpan">addVec</span>(mat[i],vec));
-        return result;
-    } else {
-        throw new Error(&#x22;Length Error : not same.&#x22;)
+var deltaW = math.mulMat(math.transpose(self.x),deltaY);
+var deltaB = math.meanMatAxis(deltaY,0);
+
+self.W = math.addMat(self.W,math.mulMatScalar(deltaW,lr));
+self.b = math.<span class="apidocCodeKeywordSpan">addVec</span>(self.b,math.mulVecScalar(deltaB,lr));
+if(self.settings[&#x27;log level&#x27;] &#x3e; 0) {
+    var progress = (1.*i/epochs)*100;
+    if(progress &#x3e; currentProgress) {
+        console.log(&#x22;LogisticRegression&#x22;,progress.toFixed(0),&#x22;% Completed.&#x22;);
+        currentProgress++;
     }
 }
-
-m.minusMatVec = function(mat,vec) {
 ...</pre></li>
     </ul>
 
@@ -3242,7 +3091,24 @@ m.minusMatVec = function(mat,vec) {
         sqsum += vec[i] * vec[i];
     return Math.sqrt(sqsum);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return f;
+}
+
+function getKernel (options) {
+if(typeof options === &#x27;undefined&#x27;) {
+    return function(x,y) {
+        var sigma = 1.0;
+        return Math.exp(-1.*Math.pow(math.<span class="apidocCodeKeywordSpan">getNormVec</span>(math.minusVec(x,y)),2)/(2*sigma*
+sigma));
+    }
+} else if (typeof options === &#x27;function&#x27;) {
+    return options;
+} else if (options[&#x27;type&#x27;] === &#x27;gaussian&#x27;) {
+    return function(x,y) {
+        var sigma = options[&#x27;sigma&#x27;];
+        return Math.exp(-1.*Math.pow(math.getNormVec(math.minusVec(x,y)),2)/(2*sigma*sigma));
+...</pre></li>
     </ul>
 
 
@@ -3371,21 +3237,21 @@ for(i=0 ; i&#x3c;mat.length ; i++)
     }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    var i ;
-    var result = [];
-    for(i=0 ; i&#x3c;row; i++)
-        result.push(m.meanVec(mat[i]));
-    return result;
-} else {
-    mat_T = m.transpose(mat);
-    return m.<span class="apidocCodeKeywordSpan">meanMatAxis</span>(mat_T,1);
-}
-};
+    var i;
+    var currentProgress = 1;
+    for(i=0;i&#x3c;epochs;i++) {
+var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+var deltaY = math.minusMat(self.y,probYgivenX);
 
-m.squareVec = function(vec) {
-var squareVec = [];
-var i;
-for(i=0;i&#x3c;vec.length;i++) {
+var deltaW = math.mulMat(math.transpose(self.x),deltaY);
+var deltaB = math.<span class="apidocCodeKeywordSpan">meanMatAxis</span>(deltaY,0);
+
+self.W = math.addMat(self.W,math.mulMatScalar(deltaW,lr));
+self.b = math.addVec(self.b,math.mulVecScalar(deltaB,lr));
+if(self.settings[&#x27;log level&#x27;] &#x3e; 0) {
+    var progress = (1.*i/epochs)*100;
+    if(progress &#x3e; currentProgress) {
+        console.log(&#x22;LogisticRegression&#x22;,progress.toFixed(0),&#x22;% Completed.&#x22;);
 ...</pre></li>
     </ul>
 
@@ -3402,19 +3268,20 @@ for(i=0;i&#x3c;vec.length;i++) {
     return 1. * m.sumVec(vec) / vec.length;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    // default axis 0;
-    // axis 0 : mean of col vector . axis 1 : mean of row vector
-    if(axis === 1) {
-        var row = m.shape(mat)[0];
-        var i ;
-        var result = [];
-        for(i=0 ; i&#x3c;row; i++)
-            result.push(m.<span class="apidocCodeKeywordSpan">meanVec</span>(mat[i]));
-        return result;
-    } else {
-        mat_T = m.transpose(mat);
-        return m.meanMatAxis(mat_T,1);
-    }
+
+LogisticRegression.prototype.getReconstructionCrossEntropy = function () {
+    var self = this;
+    var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+    var a = math.mulMatElementWise(self.y, math.activateMat(probYgivenX,Math.log));
+    var b = math.mulMatElementWise(math.mulMatScalar(math.addMatScalar(self.y,-1),-1),
+        math.activateMat(math.mulMatScalar(math.addMatScalar(probYgivenX,-1),-1),Math.log));
+    var crossEntropy = -math.<span class="apidocCodeKeywordSpan">meanVec</span>(math.sumMatAxis(math.addMat(a,b),1));
+    return crossEntropy;
+};
+
+LogisticRegression.prototype.predict = function (x) {
+    var self = this;
+    return math.softmaxMat(math.addMatVec(math.mulMat(x,self.W),self.b));
 };
 ...</pre></li>
     </ul>
@@ -3521,7 +3388,23 @@ m.covarianceVecs = function(vecs) {
         throw new Error(&#x27;Matrix mismatch.&#x27;);
     }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+lr = settings[&#x27;lr&#x27;];
+    if(typeof settings[&#x27;epochs&#x27;] !== &#x27;undefined&#x27;)
+epochs = settings[&#x27;epochs&#x27;];
+    var i;
+    var currentProgress = 1;
+    for(i=0;i&#x3c;epochs;i++) {
+var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+var deltaY = math.<span class="apidocCodeKeywordSpan">minusMat</span>(self.y,probYgivenX);
+
+var deltaW = math.mulMat(math.transpose(self.x),deltaY);
+var deltaB = math.meanMatAxis(deltaY,0);
+
+self.W = math.addMat(self.W,math.mulMatScalar(deltaW,lr));
+self.b = math.addVec(self.b,math.mulVecScalar(deltaB,lr));
+if(self.settings[&#x27;log level&#x27;] &#x3e; 0) {
+...</pre></li>
     </ul>
 
 
@@ -3661,7 +3544,23 @@ if(typeof input !== &#x27;undefined&#x27;)
         throw new Error(&#x22;Matrix shape error : not same&#x22;);
     }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if(self.settings[&#x27;log level&#x27;] &#x3e; 0)
+        console.log(&#x22;LogisticRegression Final Cross Entropy : &#x22;,self.getReconstructionCrossEntropy());
+};
+
+LogisticRegression.prototype.getReconstructionCrossEntropy = function () {
+    var self = this;
+    var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+    var a = math.<span class="apidocCodeKeywordSpan">mulMatElementWise</span>(self.y, math.activateMat(probYgivenX,Math.log));
+    var b = math.mulMatElementWise(math.mulMatScalar(math.addMatScalar(self.y,-1),-1),
+        math.activateMat(math.mulMatScalar(math.addMatScalar(probYgivenX,-1),-1),Math.log));
+    var crossEntropy = -math.meanVec(math.sumMatAxis(math.addMat(a,b),1));
+    return crossEntropy;
+};
+
+LogisticRegression.prototype.predict = function (x) {
+...</pre></li>
     </ul>
 
 
@@ -3686,7 +3585,23 @@ if(typeof input !== &#x27;undefined&#x27;)
     }
     return result;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    for(i=0;i&#x3c;epochs;i++) {
+var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+var deltaY = math.minusMat(self.y,probYgivenX);
+
+var deltaW = math.mulMat(math.transpose(self.x),deltaY);
+var deltaB = math.meanMatAxis(deltaY,0);
+
+self.W = math.addMat(self.W,math.<span class="apidocCodeKeywordSpan">mulMatScalar</span>(deltaW,lr));
+self.b = math.addVec(self.b,math.mulVecScalar(deltaB,lr));
+if(self.settings[&#x27;log level&#x27;] &#x3e; 0) {
+    var progress = (1.*i/epochs)*100;
+    if(progress &#x3e; currentProgress) {
+        console.log(&#x22;LogisticRegression&#x22;,progress.toFixed(0),&#x22;% Completed.&#x22;);
+        currentProgress++;
+    }
+...</pre></li>
     </ul>
 
 
@@ -3704,7 +3619,23 @@ if(typeof input !== &#x27;undefined&#x27;)
         result.push(vec[i]*scalar);
     return result;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+var deltaY = math.minusMat(self.y,probYgivenX);
+
+var deltaW = math.mulMat(math.transpose(self.x),deltaY);
+var deltaB = math.meanMatAxis(deltaY,0);
+
+self.W = math.addMat(self.W,math.mulMatScalar(deltaW,lr));
+self.b = math.addVec(self.b,math.<span class="apidocCodeKeywordSpan">mulVecScalar</span>(deltaB,lr));
+if(self.settings[&#x27;log level&#x27;] &#x3e; 0) {
+    var progress = (1.*i/epochs)*100;
+    if(progress &#x3e; currentProgress) {
+        console.log(&#x22;LogisticRegression&#x22;,progress.toFixed(0),&#x22;% Completed.&#x22;);
+        currentProgress++;
+    }
+}
+...</pre></li>
     </ul>
 
 
@@ -3725,7 +3656,23 @@ if(typeof input !== &#x27;undefined&#x27;)
         newVec.push(1.*vec[i]/tot);
     return newVec;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+for(j=0;j&#x3c;elite;j++)
+    newPop.push(pop[j]);
+
+// compute fitnesses
+var fitnesses = [];
+for(j=0; j&#x3c;pop.length; j++)
+    fitnesses[j] = q * Math.pow(1-q,j);
+fitnesses = math.<span class="apidocCodeKeywordSpan">normalizeVec</span>(fitnesses);
+
+// crossover, mutate
+for(j=0; j&#x3c;pop.length - elite;j++) {
+    var idx1 = rouletteWheel(fitnesses);
+    var idx2 = rouletteWheel(fitnesses);
+    var crossovered = crossover(pop[idx1],pop[idx2]);
+    var mutated = mutate(crossovered);
+...</pre></li>
     </ul>
 
 
@@ -3888,7 +3835,22 @@ var vec = [];
   var rand = Math.random() * (max - min + 0.9999) + min
   return Math.floor(rand);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+optimize.hillclimb = function(options){
+var domain = options[&#x27;domain&#x27;];
+var costf = options[&#x27;costf&#x27;];
+
+var i;
+var vec = [];
+for(i=0 ; i&#x3c;domain.length ; i++)
+    vec.push(math.<span class="apidocCodeKeywordSpan">randInt</span>(domain[i][0],domain[i][1]));
+
+var current, best;
+
+while(true) {
+    var neighbors = [];
+    var i,j;
+...</pre></li>
     </ul>
 
 
@@ -4078,7 +4040,23 @@ for (var i = 0; i &#x3c; n ; i++) {
         ret.push(i);
     return ret;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    means : means
+};
+}
+
+var getRandomMeans = function(data,k, init_using_data) {
+var clusters = [];
+if(init_using_data) {
+    var cluster_index = math.<span class="apidocCodeKeywordSpan">range</span>(data.length);
+    cluster_index = math.shuffle(cluster_index);
+    for(i=0 ; i&#x3c;k ; i++) {
+        clusters.push(data[cluster_index[i]]);
+    }
+} else {
+    var i,j;
+    var ranges = [];
+...</pre></li>
     </ul>
 
 
@@ -4130,7 +4108,23 @@ for(i=0 ; i&#x3c;row ; i++) {
     for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+}
+
+var getRandomMeans = function(data,k, init_using_data) {
+var clusters = [];
+if(init_using_data) {
+    var cluster_index = math.range(data.length);
+    cluster_index = math.<span class="apidocCodeKeywordSpan">shuffle</span>(cluster_index);
+    for(i=0 ; i&#x3c;k ; i++) {
+        clusters.push(data[cluster_index[i]]);
+    }
+} else {
+    var i,j;
+    var ranges = [];
+    for(i=0 ; i&#x3c;data[0].length ; i++) {
+...</pre></li>
     </ul>
 
 
@@ -4190,7 +4184,23 @@ var i,j;
         result.push(m.softmaxVec(mat[i]));
     return result;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if(typeof settings[&#x27;lr&#x27;] !== &#x27;undefined&#x27;)
+lr = settings[&#x27;lr&#x27;];
+    if(typeof settings[&#x27;epochs&#x27;] !== &#x27;undefined&#x27;)
+epochs = settings[&#x27;epochs&#x27;];
+    var i;
+    var currentProgress = 1;
+    for(i=0;i&#x3c;epochs;i++) {
+var probYgivenX = math.<span class="apidocCodeKeywordSpan">softmaxMat</span>(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+var deltaY = math.minusMat(self.y,probYgivenX);
+
+var deltaW = math.mulMat(math.transpose(self.x),deltaY);
+var deltaB = math.meanMatAxis(deltaY,0);
+
+self.W = math.addMat(self.W,math.mulMatScalar(deltaW,lr));
+self.b = math.addVec(self.b,math.mulVecScalar(deltaB,lr));
+...</pre></li>
     </ul>
 
 
@@ -4344,19 +4354,20 @@ if(axis === 1) {
     }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-        var i ;
-        var result = [];
-        for(i=0 ; i&#x3c;row; i++)
-            result.push(m.sumVec(mat[i]));
-        return result;
-    } else {
-        mat_T = m.transpose(mat);
-        return m.<span class="apidocCodeKeywordSpan">sumMatAxis</span>(mat_T,1);
-    }
+
+LogisticRegression.prototype.getReconstructionCrossEntropy = function () {
+    var self = this;
+    var probYgivenX = math.softmaxMat(math.addMatVec(math.mulMat(self.x,self.W),self.b));
+    var a = math.mulMatElementWise(self.y, math.activateMat(probYgivenX,Math.log));
+    var b = math.mulMatElementWise(math.mulMatScalar(math.addMatScalar(self.y,-1),-1),
+        math.activateMat(math.mulMatScalar(math.addMatScalar(probYgivenX,-1),-1),Math.log));
+    var crossEntropy = -math.meanVec(math.<span class="apidocCodeKeywordSpan">sumMatAxis</span>(math.addMat(a,b),1));
+    return crossEntropy;
 };
 
-m.meanVec = function(vec) {
-    return 1. * m.sumVec(vec) / vec.length;
+LogisticRegression.prototype.predict = function (x) {
+    var self = this;
+    return math.softmaxMat(math.addMatVec(math.mulMat(x,self.W),self.b));
 };
 ...</pre></li>
     </ul>
@@ -4450,21 +4461,21 @@ if(typeof input !== &#x27;undefined&#x27;)
     return mat;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var i;
-for(i=0; i&#x3c;vecs.length; i++)
-    sum = m.addVec(sum,vecs[i]);
-return m.activateVec(sum,function(x) {return 1.*x/vecs.length;});
+ * Created by joonkukang on 2014. 1. 12..
+ */
+var math = require(&#x27;./utils&#x27;).math;
+let LogisticRegression = module.exports = function (settings) {
+    var self = this;
+    self.x = settings[&#x27;input&#x27;];
+    self.y = settings[&#x27;label&#x27;];
+    self.W = math.<span class="apidocCodeKeywordSpan">zeroMat</span>(settings[&#x27;n_in&#x27;],settings[&#x27;n_out&#x27;]);
+    self.b = math.zeroVec(settings[&#x27;n_out&#x27;]);
+    self.settings = {
+        &#x27;log level&#x27; : 1 // 0 : nothing, 1 : info, 2: warn
+    };
 };
 
-m.covarianceVecs = function(vecs) {
-var mat = m.<span class="apidocCodeKeywordSpan">zeroMat</span>(vecs[0].length,vecs[0].length);
-var meanVec = m.meanVecs(vecs);
-var i;
-for(i=0; i&#x3c;vecs.length; i++) {
-    var a = m.minusVec(vecs[i],meanVec);
-    mat = m.addMat(mat, m.mulMat(m.transpose([a]),[a]));
-}
-return m.activateMat(mat,function(x) { return 1.*x/(vecs.length-1);});
+LogisticRegression.prototype.train = function (settings) {
 ...</pre></li>
     </ul>
 
@@ -4827,7 +4838,23 @@ console.log(&#x22;cost : &#x22;,costf(vec));
     <li>description and source-code<pre class="apidocCodePre">isNumber = function (n) {
     return !isNaN(parseFloat(n)) &#x26;&#x26; isFinite(n);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function classify(observaton,tree) {
+if(typeof tree.results !== &#x27;undefined&#x27;)
+    return tree.results;
+else {
+    var v = observaton[tree.col];
+    var branch;
+    if(utils.<span class="apidocCodeKeywordSpan">isNumber</span>(v)) {
+        if(v&#x3e;=tree.value) branch = tree.tb;
+        else branch = tree.fb;
+    } else {
+        if(v === tree.value) branch = tree.tb;
+        else branch = tree.fb;
+    }
+    return classify(observaton,branch);
+...</pre></li>
     </ul>
 
 
